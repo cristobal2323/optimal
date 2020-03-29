@@ -1,0 +1,114 @@
+.module--dashboardHeader {
+  width: 100%;
+  height: 3.9687em;
+  background: #fff;
+  position: relative;
+  z-index: 4;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .module--dashboardHeadeBtnNav {
+    a {
+      color: $base-color;
+      @include respond-to(tabletPhone) {
+        display: flex;
+      }
+      margin: 0 1em;
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      justify-content: center;
+      cursor: pointer;
+      align-items: center;
+      &:hover {
+        background: $base-color-text-hover;
+      }
+    }
+  }
+  .module--dashboardHeaderName {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    h2 {
+      font-size: 0.8em;
+      padding: 0;
+      margin: 0;
+      color: $text-gray;
+      text-transform: capitalize;
+    }
+    .module--dashboardHeaderName__avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: $base-color;
+      color: #ffffff;
+      margin-left: 1em;
+      border-radius: 50%;
+      text-transform: uppercase;
+    }
+    &:before {
+      content: '';
+      width: 2px;
+      height: 2.5em;
+      margin-right: 1em;
+      background: #ccc;
+    }
+    .module--dashboardHeaderName__menu {
+      position: absolute;
+      background: #ffffff;
+      top: 4.563em;
+      right: 1em;
+      padding: 0.5em 1em;
+      width: 9.375em;
+      border-radius: 5px;
+      display: none;
+      &.active {
+        display: block;
+      }
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        li {
+          color: $base-color-hover-light;
+          &.bottom {
+            border-top: solid 1px #ccc;
+            margin-top: 0.5em;
+            padding-top: 0.5em;
+          }
+          a {
+            color: $base-color-hover-light;
+            font-size: 0.813em;
+            padding: 0.5em;
+            display: block;
+            cursor: pointer;
+            border-radius: 5px;
+
+            &:hover {
+              background: $base-color-text-hover;
+            }
+            i {
+              display: inline-block;
+              width: 15px;
+              text-align: center;
+            }
+            strong {
+              font-weight: normal;
+              color: $text-dark;
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.module--Loading {
+  height: calc(100vh - 175px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin: 0 0.5em 0 0;
+    padding: 0;
+  }
+}

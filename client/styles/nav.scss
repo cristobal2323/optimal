@@ -1,0 +1,226 @@
+.module--dashboardNav {
+  padding: 1em;
+  position: relative;
+  z-index: 4;
+  .module--dashboardNav__logo {
+    width: 100%;
+    text-align: center;
+    padding: 0.5em 0 1em 0;
+    border-bottom: solid 1px $base-color-hover;
+    img {
+      width: 58%;
+    }
+  }
+  .module--dashboardNav__menu {
+    color: $base-color-hover;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      li {
+        color: $base-color-text-hover;
+        cursor: pointer;
+        border-bottom: solid 1px $base-color-hover;
+        > a {
+          display: block;
+          padding: 1.2em 0;
+          color: $base-color-text-hover;
+          text-decoration: none;
+          &.active {
+            color: #fff;
+            i {
+              color: #fff;
+            }
+          }
+          &.arrow {
+            position: relative;
+            &:before {
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              content: '\f105';
+              position: absolute;
+              right: 0;
+              top: 33px;
+              z-index: 2;
+              color: $base-color-hover;
+              transition: transform 0.5s ease-in-out;
+            }
+            &.active {
+              &:before {
+                transform: rotate(90deg);
+              }
+            }
+          }
+          &.space {
+            padding: 2em 0 1.2em 0;
+          }
+          &.mobile {
+            text-align: center;
+            font-size: 0.6875em;
+            strong {
+              display: block;
+              width: 100%;
+            }
+            i {
+              margin: 0;
+            }
+            &.arrow {
+              position: relative;
+              &:before {
+                content: none;
+              }
+            }
+          }
+          @include respond-to(tabletPhone) {
+            text-align: center;
+            font-size: 0.6875em;
+            strong {
+              display: block;
+              width: 100%;
+            }
+            i {
+              margin: 0;
+            }
+            &.arrow {
+              position: relative;
+              &:before {
+                content: none;
+              }
+            }
+          }
+        }
+        i {
+          color: $base-color-hover;
+          margin-right: 0.5em;
+        }
+        strong {
+          font-weight: normal;
+        }
+
+        &.no-border {
+          border: 0;
+        }
+        &:hover,
+        &.active {
+          color: #fff;
+          i {
+            color: #fff;
+          }
+          &.arrow {
+            &:before {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  .module--dashboardNav__arrow {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    @include respond-to(tabletPhone) {
+      display: none;
+    }
+    &.mobile {
+      div {
+        i {
+          transform: rotate(180deg);
+          margin-left: 2px;
+        }
+      }
+    }
+    div {
+      width: 35px;
+      height: 35px;
+      color: $base-color-text-hover;
+      border-radius: 50%;
+      background: $base-color-hover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        background: $base-color-hover-light;
+      }
+      i {
+        display: block;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.module--dashboardNav__subMenu {
+  transition: all 0.5s ease-out;
+  height: auto;
+  max-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  @include respond-to(tabletPhone) {
+    position: absolute;
+    width: 11.25em;
+    left: 5.5em;
+    top: 0;
+    max-height: 0;
+    display: none;
+    .module--dashboardNav__subMenuBox {
+      border: solid 1px;
+    }
+    &.active {
+      max-height: 700px;
+      display: block;
+    }
+  }
+  &.mobile {
+    position: absolute;
+    width: 11.25em;
+    left: 5.5em;
+    top: 0;
+    max-height: 0;
+    display: none;
+    .module--dashboardNav__subMenuBox {
+      border: solid 1px;
+    }
+    &.active {
+      max-height: 700px;
+      display: block;
+    }
+  }
+  .module--dashboardNav__subMenuBox {
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding: 0 0.5em;
+    color: #3a3b45;
+    margin-bottom: 1em;
+  }
+  &.active {
+    max-height: 700px;
+  }
+  h3,
+  a {
+    width: 100%;
+    font-size: 0.875em;
+    &.bottom {
+      margin-bottom: 1em;
+    }
+  }
+  h3 {
+    color: #b7b9cc;
+    font-weight: bold;
+    margin: 0;
+    padding: 1em 1em 0.5em 1em;
+  }
+  a {
+    padding: 0.5rem 1rem;
+    color: $text-dark;
+    &:hover,
+    &.active {
+      background: $base-color-text-hover;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+/* Datos Async */
+export const FETCH_COP25_INIT = 'FETCH_COP25_INIT';
+export const FETCH_COP25_SUCCESS = 'FETCH_COP25_SUCCESS';
+export const FETCH_COP25_FAILURE = 'FETCH_COP25_FAILURE';
+
+export const RESET_COP25 = 'RESET_COP25';

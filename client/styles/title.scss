@@ -1,0 +1,32 @@
+.module--title {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1em;
+  div {
+    padding: 0 1rem;
+    h1 {
+      color: $text_dark;
+      font-size: 1.2em;
+      margin: 0;
+      padding: 0;
+    }
+    @include respond-to(tabletPhone) {
+      padding: 1em 0;
+      width: 100%;
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+  .module--title-form {
+    padding: 0 0 0 1rem;
+    @include respond-to(tabletPhone) {
+      padding: 1em 1em;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

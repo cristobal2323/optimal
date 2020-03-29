@@ -1,0 +1,43 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+$base-color: #314086;
+$base-color-hover: #737ba7;
+$base-color-hover-light: #9298be;
+$base-color-text-hover: #dddfeb;
+$paragraph-color: #727474;
+$text-gray: #858796;
+$text-dark: #3a3b45;
+
+.relative {
+  position: relative;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  &.flex--wrap {
+    flex-wrap: wrap;
+  }
+  .flex70 {
+    width: 70%;
+  }
+  .flex30 {
+    width: 30%;
+  }
+}
+
+.top {
+  margin-top: 1em;
+  &.topX2 {
+    margin-top: 2em;
+  }
+}
+
+.padding-right {
+  padding-right: 1em;
+}

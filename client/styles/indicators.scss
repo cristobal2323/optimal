@@ -1,0 +1,220 @@
+.module--indicators {
+  .module--indicatorsHeader {
+    display: flex;
+    width: 100%;
+    padding: 0 1em;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .module--indicatorsHeaderSelect {
+    width: 150px;
+    order: 1;
+  }
+  .module--indicatorsHeaderText {
+    order: 2;
+    width: 100px;
+    padding: 0 0 0 1em;
+    h3 {
+      background: $base-color;
+      color: #fff;
+      font-size: 1em;
+      font-weight: normal;
+      padding: 0.438em;
+      margin: 0;
+      border-radius: 5px;
+    }
+  }
+
+  .module--indicatorsHeaderButton {
+    width: calc(100% - 250px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.938em;
+    order: 0;
+    @include respond-to(desktop) {
+      width: 100%;
+      order: 3;
+    }
+    @include respond-to(tabletPhone) {
+      width: 100%;
+      order: 3;
+    }
+    ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      li {
+        border: solid 1px $base-color;
+        color: $base-color;
+        font-size: 1em;
+        list-style-type: none;
+        padding: 0.3em 1.5em;
+        margin: 0 1em 0 0;
+        border-radius: 5px;
+        @include respond-to(mobile) {
+          width: 25%;
+          font-size: 0.8em;
+        }
+        &.active,
+        &:hover {
+          cursor: pointer;
+          background: $base-color;
+          color: #fff;
+        }
+      }
+    }
+    .module--indicatorsHeaderButtons__boxDate {
+      display: flex;
+      align-items: center;
+      .module--indicatorsHeaderTextMini {
+        padding: 0 0.5em 0 0;
+        margin: 0;
+        h4 {
+          margin: 0;
+          padding: 0;
+          font-size: 12px;
+        }
+      }
+      .module--indicatorsHeaderButtons__date {
+        margin: 0 0.5em;
+        .input-date {
+          border: solid 1px $base-color;
+          color: $base-color;
+          font-size: 1em;
+          list-style-type: none;
+          background: transparent;
+          width: 120px;
+          padding: 0.438em 0 0.438em 0.3em;
+          border-radius: 5px;
+        }
+      }
+      @media screen and (max-width: 760px) {
+        margin-top: 2em;
+        width: 100%;
+        .module--indicatorsHeaderTextMini {
+          display: none;
+        }
+        .module--indicatorsHeaderButtons__date {
+          margin: 0 0.5em 0 0;
+        }
+      }
+      @include respond-to(mobile) {
+        .module--indicatorsHeaderButtons__date {
+          width: 100%;
+          .input-date {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.module--cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .module--cardsBox {
+    width: 25%;
+    @include respond-to(desktop) {
+      width: 50%;
+    }
+    @include respond-to(tabletPhone) {
+      width: 50%;
+    }
+    @include respond-to(mobile) {
+      width: 100%;
+    }
+    .module--cardBoxWhite {
+      margin: 1em;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      padding: 1em;
+      -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+      border-left: solid 5px $base-color;
+      height: 8.75em;
+    }
+    table {
+      td,
+      th {
+        font-size: 12px;
+        line-height: 110%;
+        padding: 3px 0;
+      }
+      th {
+        width: 50%;
+      }
+      td {
+        width: 25%;
+      }
+    }
+  }
+  .module--cardsBox__text {
+    width: calc(100% - 1.875rem);
+    h2 {
+      font-size: 1.1em;
+      color: $base-color;
+    }
+    h3 {
+      font-size: 1.5em;
+      strong {
+        font-size: 0.8em;
+      }
+    }
+  }
+  .module--cardsBox__icon {
+    width: 1.875rem;
+    font-size: 2em;
+    color: $base-color-text-hover;
+  }
+}
+
+.module--graph {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .module--graphBox {
+    width: 50%;
+    @include respond-to(desktop) {
+      width: 100%;
+      + .module--graphBox {
+        margin-top: 1em;
+      }
+    }
+    @include respond-to(tabletPhone) {
+      width: 100%;
+      + .module--graphBox {
+        margin-top: 1em;
+      }
+    }
+    .module--graphBoxWhite {
+      margin: 0 1em;
+      background: #fff;
+      border-radius: 5px;
+      -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+      h1 {
+        margin: 0;
+        padding: 0;
+        background: #e9eaed;
+        padding: 0.8em;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 1em;
+        color: $base-color;
+        border-bottom: solid 1px #ccc;
+      }
+      .module--graphContainer {
+        height: 300px;
+        padding: 1em 0;
+      }
+    }
+  }
+}

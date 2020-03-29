@@ -1,0 +1,291 @@
+.module--mapa {
+  padding: 0 1em;
+  .module--mapa__box {
+    width: 100%;
+    background: #fff;
+    padding: 1em;
+    height: 400px;
+    .marker {
+      width: 31px;
+      height: 31px;
+      position: relative;
+      img {
+        width: 100%;
+      }
+      .hover {
+        display: none;
+        left: -34.5px;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 100px;
+        top: 32px;
+        border-radius: 5px;
+        border: solid 1px #ccc;
+        background: #fff;
+        height: 50px;
+        flex-wrap: wrap;
+
+        &:before {
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          content: '\f0de';
+          position: absolute;
+          left: 45px;
+          top: -5px;
+          z-index: 2;
+          color: $base-color-hover;
+          transition: transform 0.5s ease-in-out;
+        }
+        div {
+          text-align: center;
+          width: 100%;
+        }
+      }
+      &:hover {
+        border-radius: 50%;
+        z-index: 20;
+        border: solid tomato 1px;
+        .hover {
+          display: flex;
+        }
+      }
+    }
+  }
+  .module--mapa__nav {
+    margin: 1em 0;
+    .nav {
+      @include respond-to(tabletPhone) {
+        flex-direction: column !important;
+      }
+    }
+    .nav-link {
+      &.active {
+        background: $base-color;
+        color: #fff;
+      }
+    }
+  }
+  .module--mapa__boxtable {
+    background: #fff;
+    .module--mapa__buton {
+      padding: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      .module--mapa__butonChild {
+        width: 208px;
+        display: flex;
+        align-items: center;
+        @include respond-to(tabletPhone) {
+          width: 100%;
+          + .module--mapa__butonChild {
+            margin-top: 1em;
+          }
+        }
+        .module--mapa__butonInput-s {
+          width: 50px;
+          margin-left: 0.5em;
+        }
+        .module--mapa__butonInput-m {
+          width: 150px;
+          margin-left: 0.5em;
+        }
+      }
+    }
+    .module--mapa__table {
+      padding: 1em 1em 0 1em;
+      .table {
+        thead {
+          th {
+            .flex {
+              display: flex;
+              align-items: center;
+            }
+            i {
+              margin-left: 5px;
+              font-size: 0.75em;
+            }
+            &.center {
+              text-align: center;
+            }
+            background: $base-color;
+            color: #fff;
+          }
+        }
+        tbody {
+          td.capitalize {
+            text-transform: capitalize;
+          }
+          td.center {
+            text-align: center;
+            a {
+              color: $base-color-hover;
+              cursor: pointer;
+              &:hover {
+                color: $base-color-hover-light;
+              }
+            }
+          }
+        }
+      }
+    }
+    .module--mapa__paginator {
+      padding-bottom: 1em;
+      display: flex;
+      justify-content: center;
+      .btn-toolbar {
+        button {
+          background: $base-color-hover;
+          border: solid 1px #fff;
+          &.active {
+            background: $base-color-hover-light;
+          }
+          &:hover {
+            background: $base-color-hover-light;
+          }
+        }
+      }
+    }
+    .module--mapa__infoTable {
+      p {
+        margin: 0;
+        padding: 0 1em 1em 1em;
+      }
+    }
+  }
+}
+
+.modal--mapa {
+  display: flex;
+  flex-wrap: wrap;
+  .modal--mapa__box {
+    width: 33.3%;
+    padding: 1em;
+    @include respond-to(tabletPhone) {
+      width: 50%;
+    }
+
+    @include respond-to(mobile) {
+      width: 100%;
+    }
+
+    .modal--mapa__boxContainer {
+      height: 150px;
+      width: 100%;
+      border-radius: 5px;
+      border: solid #ccc 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        border: solid #9ec646 1px;
+        cursor: pointer;
+      }
+      &.active {
+        background: #f0f7e2;
+        border: solid #9ec646 1px;
+      }
+      &.desactive {
+        h2,
+        h3 {
+          opacity: 0.2;
+        }
+        &:hover {
+          border: solid #ccc 1px;
+        }
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+          color: $base-color;
+          text-align: center;
+          h2 {
+            font-size: 2em;
+            text-transform: uppercase;
+            color: $base-color;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+          }
+          h3 {
+            font-size: 1em;
+            text-transform: uppercase;
+            color: $base-color;
+            font-weight: bold;
+            margin: 0.5em 0 0 0;
+            padding: 0;
+          }
+          h4 {
+            font-size: 0.875em;
+            color: $base-color-hover;
+            margin: 0.3em 0 0 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  .modal--mapa__boxBig {
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h3 {
+      font-size: 20px;
+    }
+  }
+}
+
+.custom-tooltip {
+  background: #fff;
+  border: solid 1px #ccc;
+  padding: 1em;
+  font-size: 14px;
+  p {
+    padding: 0;
+    margin: 0;
+    &.purple {
+      color: #314086;
+    }
+    &.orange {
+      color: #ff7300;
+    }
+  }
+}
+
+.module--tablemapa__box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-right: 1em;
+  &.height400 {
+    height: 400px;
+  }
+  .hover--map {
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    background: #fff;
+    padding: 10px;
+    font-size: 13px;
+    width: 150px;
+    text-align: center;
+    h1 {
+      font-size: 13px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .App-map {
+    width: 100%;
+    height: 100%;
+  }
+}

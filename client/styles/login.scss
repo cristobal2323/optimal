@@ -1,0 +1,65 @@
+.module--login {
+  padding: 0;
+  margin: 0 auto;
+  height: 100vh;
+  min-height: 100vh;
+  background: url('./img/login--background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  @include respond-to(mobile) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @include respond-to(tablet) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @include respond-to(tv) {
+    padding: 0 20%;
+  }
+  .module--loginImg {
+    @include respond-to(mobile) {
+      text-align: center;
+      width: 100%;
+      padding: 1em;
+      img {
+        max-width: 100%;
+      }
+    }
+    @include respond-to(tablet) {
+      text-align: center;
+      width: 100%;
+      padding: 1em;
+    }
+  }
+  .module--loginForm {
+    width: 25em;
+    background: white;
+    padding: 3em 2.5em;
+    border-radius: 5px;
+
+    h1 {
+      color: $base-color;
+      font-size: 2.5em;
+      margin: 0 0 1rem 0;
+      font-weight: bold;
+    }
+    p {
+      font-size: 0.875em;
+      color: $paragraph-color;
+      margin: 0 0 2rem 0;
+    }
+    label {
+      font-size: 0.875em;
+    }
+  }
+  .module--loginForm_boxButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5em;
+  }
+}

@@ -1,0 +1,314 @@
+.module--newcop25 {
+  background: url('./img/fondo-8.jpg') no-repeat center center fixed,
+    url('./img/fondo-2.jpg') no-repeat center center fixed,
+    url('./img/fondo-3.jpg') no-repeat center center fixed,
+    url('./img/fondo-4.jpg') no-repeat center center fixed,
+    url('./img/fondo-5.jpg') no-repeat center center fixed,
+    url('./img/fondo-6.jpg') no-repeat center center fixed,
+    url('./img/fondo-7.jpg') no-repeat center center fixed,
+    url('./img/fondo-1.jpg') no-repeat center center fixed;
+  -webkit-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
+  &.fondo-1 {
+    background: url('./img/fondo-1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  &.fondo-2 {
+    background: url('./img/fondo-2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  &.fondo-3 {
+    background: url('./img/fondo-3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  &.fondo-4 {
+    background: url('./img/fondo-4.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  &.fondo-5 {
+    background: url('./img/fondo-5.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  &.fondo-6 {
+    background: url('./img/fondo-6.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  &.fondo-7 {
+    background: url('./img/fondo-7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  &.fondo-8 {
+    background: url('./img/fondo-8.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: bottom;
+  }
+  background-size: cover;
+  position: fixed;
+  background-position: bottom;
+  top: 0;
+  z-index: 100;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  .module--cop23__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+    min-width: 300px;
+    height: 70vh;
+    margin: 3%;
+    padding: 0 1em 1.5em 8%;
+    .module--cop23__box {
+      margin-top: 2%;
+      background: #ffffff;
+      height: 15%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+      &.a {
+        .border {
+          position: absolute;
+          border: 0 !important;
+          background: #1b3b83;
+          width: 2%;
+          height: 100%;
+          top: 0px;
+          right: 0;
+          z-index: 2;
+        }
+        h2 {
+          color: #1b3b83;
+        }
+      }
+      &.b {
+        .border {
+          position: absolute;
+          border: 0 !important;
+          background: #eaa809;
+          width: 2%;
+          height: 100%;
+          top: 0px;
+          right: 0;
+          z-index: 2;
+        }
+        h2 {
+          color: #eaa809;
+        }
+      }
+      &.c {
+        .border {
+          position: absolute;
+          border: 0 !important;
+          background: #5f430f;
+          width: 2%;
+          height: 100%;
+          top: 0px;
+          right: 0;
+          z-index: 2;
+        }
+        h2 {
+          color: #5f430f;
+        }
+      }
+      &.d {
+        .border {
+          position: absolute;
+          border: 0 !important;
+          background: #007280;
+          width: 2%;
+          height: 100%;
+          top: 0px;
+          right: 0;
+          z-index: 2;
+        }
+        h2 {
+          color: #007280;
+        }
+      }
+      &.e {
+        .border {
+          position: absolute;
+          border: 0 !important;
+          background: #007a39;
+          width: 2%;
+          height: 100%;
+          top: 0px;
+          right: 0;
+          z-index: 2;
+        }
+        h2 {
+          color: #007a39;
+        }
+      }
+      .hexagon {
+        position: absolute;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: -8%;
+        z-index: 3;
+        img {
+          height: 118%;
+        }
+      }
+      .hexagon-color {
+        position: absolute;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: -6%;
+        z-index: 3;
+        img {
+          height: 100%;
+        }
+      }
+      .hexagon-icon {
+        position: absolute;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        img {
+          height: 50%;
+        }
+      }
+      h1 {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: calc(0.6em + 0.6vw);
+        width: 100%;
+      }
+      h2 {
+        margin: 0.1rem 0 0 0;
+        padding: 0;
+        text-align: center;
+        font-size: calc(1.4em + 0.4vw);
+        width: 100%;
+        .text {
+          font-weight: normal;
+          font-size: calc(1.2rem + 0.4vw);
+        }
+        .textminy {
+          font-size: calc(1rem + 0.4vw);
+        }
+      }
+    }
+  }
+  .module--newcop25__logo {
+    position: absolute;
+    right: 3%;
+    top: 1%;
+    width: 10%;
+    img {
+      width: 100%;
+    }
+  }
+  .module--newcop25__footer {
+    position: absolute;
+    right: 0;
+    bottom: 1%;
+    width: 30%;
+    ul {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.auspiciadores {
+  background: #1d1d1d;
+  background-size: cover;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 1;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  .module--cop25__btnreturn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 102;
+    a {
+      display: none;
+    }
+    &:hover {
+      a {
+        display: block;
+      }
+    }
+  }
+  &.hide {
+    opacity: 0;
+  }
+  .logo-cop {
+    width: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  div {
+    color: #ffffff;
+    font-size: 1.6em;
+    -webkit-transition: background 1s ease-in-out;
+    transition: background 1s ease-in-out;
+    &.fondo-auspiciadores {
+      width: 40%;
+      height: 40%;
+      text-align: center;
+      &.fondo-1 {
+        background: url('./img/agencia.png') no-repeat center center fixed;
+        background-size: 30%;
+      }
+      &.fondo-2 {
+        background: url('./img/caja.png') no-repeat center center fixed;
+        background-size: 30%;
+      }
+      &.fondo-3 {
+        background: url('./img/cop25.png') no-repeat center center fixed;
+        background-size: 30%;
+      }
+      &.fondo-4 {
+        background: url('./img/lareina.png') no-repeat center center fixed;
+        background-size: 30%;
+      }
+      &.fondo-5 {
+        background: url('./img/agencia.png') no-repeat center center fixed;
+        background-size: 30%;
+      }
+    }
+  }
+}

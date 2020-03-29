@@ -1,0 +1,34 @@
+.module--form {
+  width: calc(100% - 2em);
+  margin: 1em 1em 0 1em;
+  padding: 1em;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px rgb(218, 215, 215) solid;
+  .module--form__box {
+    width: 50%;
+    @include respond-to(tabletPhone) {
+      width: 100%;
+    }
+    padding: 1em 1em 0 1em;
+    &.full {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    &.title {
+      width: 100%;
+      display: flex;
+      padding: 0 1em 0 1em;
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 1.2em;
+        padding-bottom: 1rem;
+        width: 100%;
+        border-bottom: 1px rgb(218, 215, 215) solid;
+      }
+    }
+  }
+}
