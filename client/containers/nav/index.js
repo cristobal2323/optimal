@@ -15,7 +15,7 @@ import Vehiculo from '../../components/nav/vehiculo';
 import Cargador from '../../components/nav/cargador';
 import Conductores from '../../components/nav/conductores';
 import Flota from '../../components/nav/flota';
-import Admin from '../../components/nav/admin';
+
 import ReinaCop25 from '../../components/nav/reinaCop25';
 
 import NewAdmin from '../../components/nav/newAdmin';
