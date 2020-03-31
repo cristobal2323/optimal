@@ -7,15 +7,15 @@ import { Form, Button, Alert } from 'react-bootstrap';
 const FormLogin = props => (
   <div className="module--loginForm">
     <h1>Bienvenidos</h1>
-    <p>Sistema de control de flotas de vehículos y cargadores eléctricos</p>
+    <p>Sistema de control optimal</p>
     <Form onSubmit={!props.loading ? props.handleLogin : null}>
       <Form.Group controlId="email">
         <Form.Label>Email:</Form.Label>
-        <Form.Control type="email" placeholder="" />
+        <Form.Control type="email" placeholder="Ingrese su email" />
       </Form.Group>
       <Form.Group controlId="pass">
         <Form.Label>Contraseña</Form.Label>
-        <Form.Control type="password" placeholder="" />
+        <Form.Control type="password" placeholder="Ingrese su contraseña" />
       </Form.Group>
       <div className="module--loginForm_boxButton">
         <Button disabled={props.loading} variant="main" type="submit">

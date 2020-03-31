@@ -12,7 +12,8 @@ import * as loginactions from '../../actions/login/index';
 
 /* Images */
 import '../../styles/img/login--background.jpg';
-import Logo from '../../styles/img/login--logo.png';
+import Logo from '../../styles/img/optimal-white.png';
+import Fondo from '../../styles/img/fondo.png';
 
 /* Actions */
 
@@ -44,14 +45,16 @@ class Login extends Component {
     ) : (
       <section className="module--login">
         <div className="module--loginImg">
-          <img src={Logo} alt="Logo" />
+          <img src={Logo} alt="fondo" />
         </div>
-        <Form
-          status={this.props.status}
-          loading={this.props.loading}
-          auth={this.props.auth}
-          handleLogin={this.handleLogin}
-        />
+        <div className="module--loginBox">
+          <Form
+            status={this.props.status}
+            loading={this.props.loading}
+            auth={this.props.auth}
+            handleLogin={this.handleLogin}
+          />
+        </div>
       </section>
     );
   }

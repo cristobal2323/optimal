@@ -1,64 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Eventos = props => (
+const Admin = props => (
   <li className="relative">
     <a
-      id="menu-2"
+      id="menu-100"
       data-menu="ok"
+      className="arrow"
       onClick={props.handleMenu}
       onKeyDown={props.handleMenu}
-      data-child="sub--menu_2"
-      className="space arrow"
+      data-child="sub--menu_100"
     >
-      <i className="fas fa-exclamation-circle" />
-      <strong>Eventos</strong>
+      <i className="fas fa-low-vision" />
+      <strong>FFD</strong>
     </a>
     <div
-      id="sub--menu_2"
       data-subbox="ok"
+      id="sub--menu_100"
       className="module--dashboardNav__subMenu"
     >
       <div className="module--dashboardNav__subMenuBox">
         <h3>Eventos por:</h3>
-        <a
-          id="submenu1"
+        <Link
+          to="/dashboard/crud_list_vehicle"
+          id="submenu100-a"
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
         >
-          Vehículo
-        </a>
-        <a
-          id="submenu2"
+          Resumen
+        </Link>
+        <Link
+          to="/dashboard/crud_list_device"
+          id="submenu100-b"
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
         >
-          Cargadores
-        </a>
-        <a
-          id="submenu3"
-          data-submenu="ok"
-          onClick={props.handleSubMenu}
-          onKeyDown={props.handleSubMenu}
-        >
-          Flotas
-        </a>
-        <a
-          id="submenu4"
+          Detalle
+        </Link>
+        <Link
+          to="/dashboard/crud_list_driver"
+          id="submenu100-c"
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
           className="bottom"
         >
-          Conductores
-        </a>
+          Conductor
+        </Link>
       </div>
     </div>
   </li>
 );
 
-Eventos.propTypes = {};
+Admin.propTypes = {};
 
-export default Eventos;
+export default Admin;

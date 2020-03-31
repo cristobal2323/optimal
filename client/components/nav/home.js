@@ -2,22 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Indicators = props => (
+const Mapa = props => (
   <li>
     <Link
-      to="/dashboard/indicators"
-      id="menu-8"
+      to="/dashboard/home"
+      id="menu-1"
       data-menu="ok"
       onClick={props.handleMenu}
       onKeyDown={props.handleMenu}
-      className="active"
     >
-      <i className="fas fa-chart-bar" />
-      <strong>Indicadores</strong>
+      <i className="fas fa-home"></i>
+      <strong>Home</strong>
     </Link>
   </li>
 );
 
-Indicators.propTypes = {};
+Mapa.propTypes = {};
 
-export default Indicators;
+export default Mapa;

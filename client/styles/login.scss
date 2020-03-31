@@ -3,63 +3,107 @@
   margin: 0 auto;
   height: 100vh;
   min-height: 100vh;
-  background: url('./img/login--background.jpg') no-repeat center center fixed;
-  background-size: cover;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  padding: 0;
+  background: #2a2e44;
   @include respond-to(mobile) {
     justify-content: center;
     flex-wrap: wrap;
+    align-content: center;
   }
   @include respond-to(tablet) {
     justify-content: center;
     flex-wrap: wrap;
+    align-content: center;
   }
-  @include respond-to(tv) {
-    padding: 0 20%;
-  }
+
   .module--loginImg {
+    width: 50%;
+    background: #cb2e56;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    img {
+      max-width: 500px;
+      width: 100%;
+    }
     @include respond-to(mobile) {
       text-align: center;
       width: 100%;
       padding: 1em;
+      height: auto;
+      background: #2a2e44;
       img {
-        max-width: 100%;
+        max-width: 200px;
+        width: 100%;
       }
     }
     @include respond-to(tablet) {
       text-align: center;
       width: 100%;
       padding: 1em;
+      height: auto;
+      background: #2a2e44;
+      img {
+        max-width: 200px;
+        width: 100%;
+      }
+    }
+  }
+  .module--loginBox {
+    width: 50%;
+    display: flex;
+    background: #2a2e44;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    @include respond-to(mobile) {
+      width: 100%;
+      height: auto;
+    }
+    @include respond-to(tablet) {
+      width: 100%;
+      height: auto;
     }
   }
   .module--loginForm {
-    width: 25em;
-    background: white;
+    width: 70%;
+    background: #2a2e44;
     padding: 3em 2.5em;
     border-radius: 5px;
-
     h1 {
-      color: $base-color;
+      color: #ffffff;
       font-size: 2.5em;
       margin: 0 0 1rem 0;
       font-weight: bold;
     }
     p {
       font-size: 0.875em;
-      color: $paragraph-color;
+      color: #ffffff;
       margin: 0 0 2rem 0;
     }
     label {
+      color: #ffffff;
       font-size: 0.875em;
+    }
+    .form-control {
+      background: #2a2e44;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+      padding: 1em 0;
+      outline-style: none;
     }
   }
   .module--loginForm_boxButton {
     width: 100%;
     display: flex;
-    justify-content: center;
     margin-top: 2.5em;
   }
 }

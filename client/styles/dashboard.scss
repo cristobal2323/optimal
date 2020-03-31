@@ -1,24 +1,48 @@
 .module--dashboard {
   display: flex;
   .module--dashboardNav {
-    width: 14.375em;
+    width: 300px;
     min-height: 100vh;
     background: $base-color;
+    .logoMobile {
+      display: none;
+    }
     @include respond-to(tabletPhone) {
       width: 6.25em;
       display: none;
+      .module--dashboardNav__perfil {
+        display: none;
+      }
       &.extend {
+        display: block;
+        .logoDesktop {
+          display: none;
+        }
+        .module--dashboardNav__perfil {
+          display: none;
+        }
+        .logoMobile {
+          display: block;
+        }
+      }
+    }
+    &.mobile {
+      width: 6.25em;
+      .logoDesktop {
+        display: none;
+      }
+      .module--dashboardNav__perfil {
+        display: none;
+      }
+      .logoMobile {
         display: block;
       }
     }
-
-    &.mobile {
-      width: 6.25em;
-    }
   }
   .module--dashboardContainer {
-    background: #f8f9fc;
-    width: calc(100% - 14.375em);
+    //background: #f8f9fc;
+    background: $base-color;
+    width: calc(100% - 300px);
     &.mobile {
       width: calc(100% - 6.25em);
     }

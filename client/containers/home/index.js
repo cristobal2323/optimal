@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-/* Actions */
+/* Components */
+import Main from '../../components/home/main';
+import Table from '../../components/home/table';
 
 class Home extends Component {
   constructor(props) {
@@ -15,7 +17,12 @@ class Home extends Component {
   async componentDidMount() {}
 
   render() {
-    return <section className="module--dashboardContainer"></section>;
+    return (
+      <section>
+        <Main />
+        <Table />
+      </section>
+    );
   }
 }
 
@@ -25,7 +32,4 @@ const mapDispatchToProps = dispatch => ({});
 
 Home.propTypes = {};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

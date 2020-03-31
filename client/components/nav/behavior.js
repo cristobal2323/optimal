@@ -5,68 +5,50 @@ import { Link } from 'react-router-dom';
 const Admin = props => (
   <li className="relative">
     <a
-      id="menu-100"
+      id="menu-7"
       data-menu="ok"
-      className="space arrow"
+      className="arrow"
       onClick={props.handleMenu}
       onKeyDown={props.handleMenu}
-      data-child="sub--menu_100"
+      data-child="sub--menu_7"
     >
-      <i className="fas fa-user-cog" />
-      <strong>Administrar</strong>
+      <i className="fas fa-traffic-light" />
+      <strong>Conducta</strong>
     </a>
     <div
       data-subbox="ok"
-      id="sub--menu_100"
+      id="sub--menu_7"
       className="module--dashboardNav__subMenu"
     >
       <div className="module--dashboardNav__subMenuBox">
         <h3>Eventos por:</h3>
         <Link
-          to="/dashboard/crud_list_vehicle"
-          id="submenu100-a"
+          to="/dashboard/list_vehicle"
+          id="submenu5"
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
         >
-          Vehículos
+          Resumen
         </Link>
         <Link
-          to="/dashboard/crud_list_device"
-          id="submenu100-b"
+          to="/dashboard/list_type_vehicle"
+          id="submenu19"
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
         >
-          Dispositivo
+          Detalle
         </Link>
         <Link
-          to="/dashboard/crud_list_driver"
-          id="submenu100-c"
-          data-submenu="ok"
-          onClick={props.handleSubMenu}
-          onKeyDown={props.handleSubMenu}
-        >
-          Conductores
-        </Link>
-        <Link
-          to="/dashboard/crud_list_fleet"
-          id="submenu100-d"
-          data-submenu="ok"
-          onClick={props.handleSubMenu}
-          onKeyDown={props.handleSubMenu}
-        >
-          Flotas
-        </Link>
-        <Link
-          to="/dashboard/crud_list_charger"
-          id="submenu100-f"
+          to="/dashboard/list_type_vehicle"
+          id="submenu20"
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
           className="bottom"
         >
-          Cargadores
+          conductor
         </Link>
       </div>
     </div>

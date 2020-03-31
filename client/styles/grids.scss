@@ -1,0 +1,73 @@
+.grids--container {
+  display: flex;
+  width: 100%;
+  .grid-title {
+    width: 100%;
+    h2 {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+      color: #ede8ea;
+      text-transform: uppercase;
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: #f82873;
+        border-radius: 3px;
+        border: solid 1px $base-color;
+        margin-right: 10px;
+      }
+    }
+  }
+  .grid-pie {
+    width: 100%;
+    height: 200px;
+    margin-top: 1rem;
+  }
+  .grid-simbo {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      color: #ede8ea;
+      font-size: 11px;
+      li {
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          background: #f82873;
+          border-radius: 3px;
+          border: solid 1px $base-color;
+          margin-right: 10px;
+        }
+        &.red {
+          &:before {
+            background: #ff2f1e;
+          }
+        }
+        &.yellow {
+          &:before {
+            background: #feb71b;
+          }
+        }
+        &.green {
+          &:before {
+            background: #00c756;
+          }
+        }
+      }
+    }
+  }
+  .grid-3 {
+    box-sizing: border-box;
+    width: 33%;
+    background: #222a40;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0 8px;
+  }
+}
