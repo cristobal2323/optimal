@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 /* Components */
 import Main from '../../components/home/main';
 import Table from '../../components/home/table';
+import Area from '../../components/home/area';
 
 class Home extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Home extends Component {
       <section>
         <Main />
         <Table />
+        <Area />
       </section>
     );
   }
