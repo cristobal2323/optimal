@@ -17,6 +17,9 @@ class Home extends Component {
       riesgo: true,
       aptitud: true,
       conducta: true,
+      optimo: true,
+      enriesgo: true,
+      alerta: true,
     };
   }
 
@@ -52,6 +55,9 @@ class Home extends Component {
           riesgo={this.state.riesgo}
           aptitud={this.state.aptitud}
           conducta={this.state.conducta}
+          optimo={this.state.optimo}
+          enriesgo={this.state.enriesgo}
+          alerta={this.state.alerta}
           startDate={this.state.startDate}
           handleChangeStart={this.handleChangeStart}
           endDate={this.state.endDate}

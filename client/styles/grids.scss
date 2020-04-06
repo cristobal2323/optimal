@@ -32,93 +32,107 @@
     height: 200px;
     margin-top: 1rem;
   }
-  .grid-button {
-    position: relative;
-    z-index: 2;
-    padding: 1rem 0 2rem 0;
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      > li {
-        color: #ede8ea;
-        font-weight: normal;
-        font-size: 12px;
-        margin-right: 10px;
-        padding: 8px;
-        border: solid 1px #ede8ea;
-        border-radius: 5px;
-        position: relative;
-        cursor: pointer;
-        .grid-button_menu-date {
-          display: flex;
-          flex-wrap: wrap;
-          width: 200px;
-          .grid-button_menu-date_a {
-            width: 200px;
-          }
-          .grid-button_menu-date_b {
-            margin-top: 6px;
-            width: 100px;
-          }
-        }
-        .input-date {
-          width: 100%;
-          background: transparent;
-        }
-        .react-datepicker__close-icon {
-          &:after {
-            background-color: #cb2e56;
-          }
-        }
-        &.active {
-          background-color: #cb2e56;
-        }
-        &:hover {
-          color: #d2aec0;
-          > ul {
-            display: flex;
-          }
-        }
-        > ul {
-          display: none;
-          flex-wrap: wrap;
-          position: absolute;
-          top: 40px;
-          left: 0px;
-          background: #ede8ea;
+  .grid-button_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .grid-button {
+      position: relative;
+      z-index: 2;
+      padding: 1rem 0 1rem 0;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        > li {
+          color: #ede8ea;
+          font-weight: normal;
+          font-size: 12px;
+          margin-right: 10px;
+          padding: 8px;
+          border: solid 1px #ede8ea;
           border-radius: 5px;
-          padding: 10px;
-          &:before {
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            content: '\f0de';
-            position: absolute;
-            left: 11px;
-            font-size: 20px;
-            top: -12px;
-            z-index: 2;
-            color: #ede8ea;
-            transition: transform 0.5s ease-in-out;
+          position: relative;
+          cursor: pointer;
+          .grid-button_menu-date {
+            display: flex;
+            flex-wrap: wrap;
+            width: 200px;
+            .grid-button_menu-date_a {
+              width: 200px;
+            }
+            .grid-button_menu-date_b {
+              margin-top: 6px;
+              width: 100px;
+            }
           }
-          &:after {
-            content: '';
-            z-index: 1;
+          .input-date {
             width: 100%;
-            position: absolute;
-            top: -7px;
-            left: 0;
-            height: 10px;
             background: transparent;
           }
-          li {
-            width: 100%;
-            color: $base-color;
-            margin: 0;
-            padding: 0;
-            + li {
-              margin-top: 5px;
+          .react-datepicker__close-icon {
+            &:after {
+              background-color: #cb2e56;
+            }
+          }
+          &.active {
+            background-color: #cb2e56;
+          }
+          &.active.optimo {
+            background-color: #00c756;
+          }
+          &.active.alerta {
+            background-color: #feb71b;
+          }
+          &.active.enriesgo {
+            background-color: #ff2f1e;
+          }
+          &:hover {
+            color: #d2aec0;
+            > ul {
+              display: flex;
+            }
+          }
+          > ul {
+            display: none;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            background: #ede8ea;
+            border-radius: 5px;
+            padding: 10px;
+            &:before {
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              content: '\f0de';
+              position: absolute;
+              left: 11px;
+              font-size: 20px;
+              top: -12px;
+              z-index: 2;
+              color: #ede8ea;
+              transition: transform 0.5s ease-in-out;
+            }
+            &:after {
+              content: '';
+              z-index: 1;
+              width: 100%;
+              position: absolute;
+              top: -7px;
+              left: 0;
+              height: 10px;
+              background: transparent;
+            }
+            li {
+              width: 100%;
+              color: $base-color;
+              margin: 0;
+              padding: 0;
+              + li {
+                margin-top: 5px;
+              }
             }
           }
         }
@@ -178,17 +192,47 @@
             background: #00c756;
           }
         }
-        &.riesgo {
+        &.riesgo-optimo {
+          &:before {
+            background: #9bf0ac;
+          }
+        }
+        &.riesgo-enriesgo {
           &:before {
             background: #cb2e56;
           }
         }
-        &.aptitud {
+        &.riesgo-alerta {
+          &:before {
+            background: #e7e30d;
+          }
+        }
+        &.aptitud-optima {
+          &:before {
+            background: #6bf620;
+          }
+        }
+        &.aptitud-alerta {
+          &:before {
+            background: #e7e30d;
+          }
+        }
+        &.aptitud-enriesgo {
           &:before {
             background: #f278a4;
           }
         }
-        &.aptitud {
+        &.conducta-optima {
+          &:before {
+            background: #a9f372;
+          }
+        }
+        &.conducta-alerta {
+          &:before {
+            background: #f3db72;
+          }
+        }
+        &.conducta-enrisgo {
           &:before {
             background: #d2aec0;
           }
