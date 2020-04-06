@@ -14,11 +14,11 @@ const renderCustomizedLabel = ({
   outerRadius,
   percent,
   index,
+  value,
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
   return (
     <text
       x={x}
@@ -27,13 +27,12 @@ const renderCustomizedLabel = ({
       textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
     >
-      {`${(percent * 100).toFixed(0)}%`}
+      {`${value.toFixed(0)}`}
     </text>
   );
 };
 
-const PieComponent = props => {
-  console.log(props.data);
+const PieComponent = (props) => {
   return (
     <ResponsiveContainer>
       <PieChart>

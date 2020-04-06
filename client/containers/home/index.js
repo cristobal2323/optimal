@@ -11,26 +11,48 @@ import Area from '../../components/home/area';
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      startDate: null,
+      endDate: null,
+      type: 'day',
+      puntoCarga: '',
+    };
   }
 
   /* Estado donde realizamos el llamado a la API */
   async componentDidMount() {}
 
+  handleChangeStart = async (date) => {
+    this.setState({
+      startDate: date,
+    });
+  };
+
+  handleChangeEnd = async (date) => {
+    this.setState({
+      endDate: date,
+    });
+  };
+
   render() {
     return (
       <section>
         <Main />
+        <Area
+          startDate={this.state.startDate}
+          handleChangeStart={this.handleChangeStart}
+          endDate={this.state.endDate}
+          handleChangeEnd={this.handleChangeEnd}
+        />
         <Table />
-        <Area />
       </section>
     );
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
 Home.propTypes = {};
 

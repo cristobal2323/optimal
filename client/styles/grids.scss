@@ -1,6 +1,7 @@
 .grids--container {
   display: flex;
   width: 100%;
+  justify-content: space-between;
   @include respond-to(mobile) {
     flex-wrap: wrap;
   }
@@ -26,8 +27,123 @@
   }
   .grid-pie {
     width: 100%;
+    position: relative;
+    z-index: 1;
     height: 200px;
     margin-top: 1rem;
+  }
+  .grid-button {
+    position: relative;
+    z-index: 2;
+    padding: 1rem 0 2rem 0;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      > li {
+        color: #ede8ea;
+        font-weight: normal;
+        font-size: 12px;
+        margin-right: 10px;
+        padding: 8px;
+        border: solid 1px #ede8ea;
+        border-radius: 5px;
+        position: relative;
+        cursor: pointer;
+        .grid-button_menu-date {
+          display: flex;
+          flex-wrap: wrap;
+          width: 200px;
+          .grid-button_menu-date_a {
+            width: 200px;
+          }
+          .grid-button_menu-date_b {
+            margin-top: 6px;
+            width: 100px;
+          }
+        }
+        .input-date {
+          width: 100%;
+          background: transparent;
+        }
+        .react-datepicker__close-icon {
+          &:after {
+            background-color: #cb2e56;
+          }
+        }
+        &.active {
+          background-color: #cb2e56;
+        }
+        &:hover {
+          color: #d2aec0;
+          > ul {
+            display: flex;
+          }
+        }
+        > ul {
+          display: none;
+          flex-wrap: wrap;
+          position: absolute;
+          top: 40px;
+          left: 0px;
+          background: #ede8ea;
+          border-radius: 5px;
+          padding: 10px;
+          &:before {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            content: '\f0de';
+            position: absolute;
+            left: 11px;
+            font-size: 20px;
+            top: -12px;
+            z-index: 2;
+            color: #ede8ea;
+            transition: transform 0.5s ease-in-out;
+          }
+          &:after {
+            content: '';
+            z-index: 1;
+            width: 100%;
+            position: absolute;
+            top: -7px;
+            left: 0;
+            height: 10px;
+            background: transparent;
+          }
+          li {
+            width: 100%;
+            color: $base-color;
+            margin: 0;
+            padding: 0;
+            + li {
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .grid-text__main {
+    width: 100%;
+    margin: 1rem 0;
+    h3 {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #ede8ea;
+      font-size: 14px;
+      strong.red {
+        color: #ff2f1e;
+      }
+      strong.yellow {
+        color: #feb71b;
+      }
+      strong.green {
+        color: #00c756;
+      }
+    }
   }
   .grid-simbo {
     ul {
@@ -67,7 +183,7 @@
   }
   .grid-3 {
     box-sizing: border-box;
-    width: 33%;
+    width: calc(33% - 16px);
     background: #222a40;
     border-radius: 5px;
     padding: 1rem;
@@ -78,7 +194,7 @@
   }
   .grid-1 {
     box-sizing: border-box;
-    width: 100%;
+    width: calc(100% - 16px);
     background: #222a40;
     border-radius: 5px;
     padding: 1rem;

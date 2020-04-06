@@ -1,6 +1,7 @@
 .module--table {
   padding: 0 8px;
   border: 0;
+  overflow: scroll;
   @include respond-to(tabletPhone) {
     overflow: scroll;
   }
@@ -61,13 +62,19 @@
         background: #212a3f;
         border-top: solid 2px $base-color;
         &.green {
-          color: #00c756;
+          span {
+            color: #00c756;
+          }
         }
         &.red {
-          color: #ff2f1e;
+          span {
+            color: #ff2f1e;
+          }
         }
         &.yellow {
-          color: #feb71b;
+          span {
+            color: #feb71b;
+          }
         }
       }
       td.center {
