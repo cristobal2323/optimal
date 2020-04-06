@@ -12,45 +12,45 @@ import {
 const data = [
   {
     name: '10-03-20',
-    uv: 10,
-    pv: 2400,
-    amt: 2400,
+    Riesgo: 10,
+    Aptitud: 24,
+    Conducta: 10,
   },
   {
     name: '11-03-20',
-    uv: 100,
-    pv: 1398,
-    amt: 2210,
+    Riesgo: 100,
+    Aptitud: 13,
+    Conducta: 24,
   },
   {
     name: '12-03-20',
-    uv: 40,
-    pv: 9800,
-    amt: 2290,
+    Riesgo: 40,
+    Aptitud: 98,
+    Conducta: 22,
   },
   {
     name: '13-03-20',
-    uv: 80,
-    pv: 3908,
-    amt: 2000,
+    Riesgo: 80,
+    Aptitud: 39,
+    Conducta: 20,
   },
   {
     name: '13-03-20',
-    uv: 90,
-    pv: 4800,
-    amt: 2181,
+    Riesgo: 90,
+    Aptitud: 48,
+    Conducta: 21,
   },
   {
     name: '14-03-20',
-    uv: 60,
-    pv: 3800,
-    amt: 2500,
+    Riesgo: 60,
+    Aptitud: 38,
+    Conducta: 25,
   },
   {
     name: '15-03-20',
-    uv: 50,
-    pv: 4300,
-    amt: 2100,
+    Riesgo: 50,
+    Aptitud: 43,
+    Conducta: 21,
   },
 ];
 
@@ -70,7 +70,30 @@ export default class Example extends PureComponent {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#cb2e56" fill="#cb2e56" />
+          {this.props.riesgo && (
+            <Area
+              type="monotone"
+              dataKey="Riesgo"
+              stroke="#cb2e56"
+              fill="#cb2e56"
+            />
+          )}
+          {this.props.aptitud && (
+            <Area
+              type="monotone"
+              dataKey="Aptitud"
+              stroke="#F278A4"
+              fill="#F278A4"
+            />
+          )}
+          {this.props.conducta && (
+            <Area
+              type="monotone"
+              dataKey="Conducta"
+              stroke="#D2AEC0"
+              fill="#D2AEC0"
+            />
+          )}
         </AreaChart>
       </ResponsiveContainer>
     );

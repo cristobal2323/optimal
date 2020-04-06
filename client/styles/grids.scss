@@ -178,6 +178,21 @@
             background: #00c756;
           }
         }
+        &.riesgo {
+          &:before {
+            background: #cb2e56;
+          }
+        }
+        &.aptitud {
+          &:before {
+            background: #f278a4;
+          }
+        }
+        &.aptitud {
+          &:before {
+            background: #d2aec0;
+          }
+        }
       }
     }
   }

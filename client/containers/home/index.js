@@ -14,8 +14,9 @@ class Home extends Component {
     this.state = {
       startDate: null,
       endDate: null,
-      type: 'day',
-      puntoCarga: '',
+      riesgo: true,
+      aptitud: true,
+      conducta: true,
     };
   }
 
@@ -34,11 +35,23 @@ class Home extends Component {
     });
   };
 
+  handleFilter = (e) => {
+    this.setState({
+      [e.target.dataset.name]: e.target.classList.contains('active')
+        ? false
+        : true,
+    });
+  };
+
   render() {
     return (
       <section>
         <Main />
         <Area
+          handleFilter={this.handleFilter}
+          riesgo={this.state.riesgo}
+          aptitud={this.state.aptitud}
+          conducta={this.state.conducta}
           startDate={this.state.startDate}
           handleChangeStart={this.handleChangeStart}
           endDate={this.state.endDate}

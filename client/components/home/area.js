@@ -8,9 +8,27 @@ const Area = (props) => (
       <div className="grid-1">
         <div className="grid-button">
           <ul>
-            <li className="active">Riesgo jornada laboral</li>
-            <li>Aptitud laboral</li>
-            <li>Modelo conducta</li>
+            <li
+              data-name="riesgo"
+              onClick={props.handleFilter}
+              className={props.riesgo ? 'active' : ''}
+            >
+              Riesgo jornada laboral
+            </li>
+            <li
+              data-name="aptitud"
+              onClick={props.handleFilter}
+              className={props.aptitud ? 'active' : ''}
+            >
+              Aptitud laboral
+            </li>
+            <li
+              data-name="conducta"
+              onClick={props.handleFilter}
+              className={props.conducta ? 'active' : ''}
+            >
+              Modelo conducta
+            </li>
             <li>
               Semana
               <ul>
@@ -42,7 +60,7 @@ const Area = (props) => (
                         disabledKeyboardNavigation
                         placeholderText="Hasta"
                         className="input-date"
-                        id="date-start"
+                        id="date-end"
                         dateFormat="dd-MM-yyyy"
                       />
                     </div>
@@ -56,7 +74,18 @@ const Area = (props) => (
           <h2>Comportamiento por semana</h2>
         </div>
         <div className="grid-pie">
-          <AreaGraph />
+          <AreaGraph
+            aptitud={props.aptitud}
+            riesgo={props.riesgo}
+            conducta={props.conducta}
+          />
+        </div>
+        <div className="grid-simbo top">
+          <ul>
+            <li className="riesgo">Riesgo jornada laboral</li>
+            <li className="aptitud">Aptitud laboral</li>
+            <li className="conducta">Modelo conducta</li>
+          </ul>
         </div>
       </div>
     </section>
