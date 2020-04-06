@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const Config = props => {
+const Config = (props) => {
   const node = useRef();
   const parent = useRef();
 
-  const handleClickHide = e => {
+  const handleClickHide = (e) => {
     if (parent.current.contains(e.target)) {
       document.getElementById('config-header').classList.add('active');
     } else if (!node.current.contains(e.target)) {

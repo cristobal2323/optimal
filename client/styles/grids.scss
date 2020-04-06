@@ -1,6 +1,9 @@
 .grids--container {
   display: flex;
   width: 100%;
+  @include respond-to(mobile) {
+    flex-wrap: wrap;
+  }
   .grid-title {
     width: 100%;
     h2 {
@@ -69,6 +72,9 @@
     border-radius: 5px;
     padding: 1rem;
     margin: 0 8px;
+    @include respond-to(mobile) {
+      width: 100%;
+    }
   }
   .grid-1 {
     box-sizing: border-box;

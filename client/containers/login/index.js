@@ -13,7 +13,6 @@ import * as loginactions from '../../actions/login/index';
 /* Images */
 import '../../styles/img/login--background.jpg';
 import Logo from '../../styles/img/optimal-white.png';
-import Fondo from '../../styles/img/fondo.png';
 
 /* Actions */
 
@@ -27,7 +26,7 @@ class Login extends Component {
   async componentDidMount() {}
 
   /* Funcion Log IN */
-  handleLogin = async event => {
+  handleLogin = async (event) => {
     event.preventDefault();
     const obj = {
       correo: document.getElementById('email').value,
@@ -60,14 +59,14 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.login.auth,
   token: state.login.token,
   loading: state.login.loading,
   status: state.login.status,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(loginactions, dispatch),
 });
 

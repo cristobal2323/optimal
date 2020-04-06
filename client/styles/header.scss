@@ -9,6 +9,8 @@
   justify-content: space-between;
   align-items: center;
   .module--dashboardHeadeBtnNav {
+    display: flex;
+    width: 100%;
     a {
       color: #f278a4;
       @include respond-to(tabletPhone) {
@@ -24,6 +26,27 @@
       align-items: center;
       &:hover {
         background: $base-color-text-hover;
+      }
+    }
+  }
+  .module--dashboardHeader__client {
+    display: flex;
+    align-items: center;
+    img {
+      max-width: 150px;
+      padding: 0 10px 0 0;
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+    h3 {
+      color: #ede8ea;
+      font-size: 12px;
+      margin: 0 0 0 0;
+      padding: 0 10px;
+      border-left: solid 1px #ede8ea;
+      @include respond-to(tabletPhone) {
+        display: none;
       }
     }
   }
@@ -59,6 +82,7 @@
       margin-right: 1em;
       background: #ccc;
     }
+
     .module--dashboardHeaderName__menu {
       position: absolute;
       background: #ffffff;

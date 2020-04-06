@@ -1,6 +1,9 @@
 .module--table {
   padding: 0 8px;
   border: 0;
+  @include respond-to(tabletPhone) {
+    overflow: scroll;
+  }
   .border-tl {
     border-top-left-radius: 5px;
   }

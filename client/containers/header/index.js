@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 /* Component */
 import Config from '../../components/header/config';
+import Client from '../../components/header/client';
 
 class Header extends Component {
   constructor(props) {
@@ -46,7 +47,9 @@ class Header extends Component {
           >
             <i className="fas fa-bars" />
           </a>
+          <Client />
         </div>
+
         <Config
           nameShort={nameShort}
           name={name}
@@ -57,13 +60,10 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
 Header.propTypes = {};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
