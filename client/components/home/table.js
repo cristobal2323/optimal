@@ -45,7 +45,10 @@ const TableComponent = (props) => (
           </th>
           <th data-name="alias">
             <div className="flex">
-              <div>Riesgo jornada laboral</div>
+              <div>
+                <div>Riesgo jornada laboral</div>
+                <div>Fecha nivel</div>
+              </div>
               <div>
                 <i className="fas fa-sort" />
               </div>
@@ -53,7 +56,10 @@ const TableComponent = (props) => (
           </th>
           <th data-name="alias">
             <div className="flex">
-              <div>Aptitud laboral</div>
+              <div>
+                <div>Aptitud laboral</div>
+                <div>Fecha nivel test</div>
+              </div>
               <div>
                 <i className="fas fa-sort" />
               </div>
