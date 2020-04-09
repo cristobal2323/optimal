@@ -29,7 +29,7 @@ const Message = (props) => (
         </div>
         <div className="grid-text__main">
           <h3>
-            Turno A: <strong className="red">65%</strong>
+            Turno A-Planta: <strong className="red">65%</strong>
           </h3>
         </div>
       </div>
@@ -58,7 +58,7 @@ const Message = (props) => (
         </div>
         <div className="grid-text__main">
           <h3>
-            Turno A: <strong className="yellow">55%</strong>
+            Turno A-Mina: <strong className="yellow">55%</strong>
           </h3>
         </div>
       </div>
@@ -87,7 +87,7 @@ const Message = (props) => (
         </div>
         <div className="grid-text__main">
           <h3>
-            Turno C: <strong className="green">15%</strong>
+            Turno C-Planta: <strong className="green">15%</strong>
           </h3>
         </div>
       </div>
