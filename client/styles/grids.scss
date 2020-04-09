@@ -88,7 +88,7 @@
           &.active.enriesgo {
             background-color: #ff2f1e;
           }
-          &:hover {
+          &.active-submenu {
             color: #d2aec0;
             > ul {
               display: flex;

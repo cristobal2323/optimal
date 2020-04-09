@@ -98,7 +98,7 @@ const TableComponent = (props) => (
           <td>Leoanardo Causa</td>
           <td>Operación 2</td>
           <td>Área 2</td>
-          <td>C</td>
+          <td>C-Mina</td>
           <td>
             <p>31-03-2020-08:00</p>
           </td>
@@ -141,7 +141,7 @@ const TableComponent = (props) => (
           <td>Fernanda Mardones</td>
           <td>Operación 4</td>
           <td>Área 4</td>
-          <td>B</td>
+          <td>B-Flotación</td>
           <td>
             <p>31-03-2020 08:00</p>
           </td>
@@ -184,7 +184,7 @@ const TableComponent = (props) => (
           <td>Max Munro</td>
           <td>Operación 4</td>
           <td>Área 4</td>
-          <td>A</td>
+          <td>A-Planta</td>
           <td>
             <p>31-03-2020 08:00</p>
           </td>
@@ -227,7 +227,7 @@ const TableComponent = (props) => (
           <td>Cristóbal Maturana</td>
           <td>Operación 1</td>
           <td>Área 1</td>
-          <td>A</td>
+          <td>A-Mina</td>
           <td>
             <p>31-03-2020 08:00</p>
           </td>
