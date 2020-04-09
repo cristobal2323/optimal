@@ -1,5 +1,5 @@
 .module--table {
-  padding: 0 8px;
+  margin: 0 8px;
   border: 0;
   overflow: scroll;
   @include respond-to(tabletPhone) {
@@ -30,6 +30,12 @@
     thead {
       th {
         vertical-align: middle;
+        padding: 5px 10px;
+        font-size: 14px;
+        white-space: nowrap;
+        &.border--right {
+          border-right: solid 2px #1b2239;
+        }
         .flex {
           display: flex;
           align-items: center;
@@ -62,6 +68,7 @@
         color: #ede8ea;
         background: #212a3f;
         border-top: solid 2px $base-color;
+        white-space: nowrap;
         p {
           margin: 0;
           padding: 0;

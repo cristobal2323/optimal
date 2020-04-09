@@ -31,7 +31,7 @@ const Area = (props) => (
                 Modelo conducta
               </li>
               <li>
-                Semana
+                Rango seleccionado: Semana
                 <ul>
                   <li>Día</li>
                   <li>Semana</li>

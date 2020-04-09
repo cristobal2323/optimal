@@ -10,8 +10,8 @@ const TableComponent = (props) => (
     <Table striped hover>
       <thead>
         <tr>
-          <th className="center border-tl" data-name="id"></th>
-          <th data-name="alias">
+          <th className="center border-tl" data-name="id" rowSpan="2" />
+          <th data-name="alias" rowSpan="2" className="border--right">
             <div className="flex">
               <div>Nombre</div>
               <div>
@@ -19,7 +19,7 @@ const TableComponent = (props) => (
               </div>
             </div>
           </th>
-          <th data-name="alias">
+          <th data-name="alias" rowSpan="2" className="border--right">
             <div className="flex">
               <div>Operación</div>
               <div>
@@ -27,7 +27,7 @@ const TableComponent = (props) => (
               </div>
             </div>
           </th>
-          <th data-name="alias">
+          <th data-name="alias" rowSpan="2" className="border--right">
             <div className="flex">
               <div>Área</div>
               <div>
@@ -35,7 +35,7 @@ const TableComponent = (props) => (
               </div>
             </div>
           </th>
-          <th data-name="alias">
+          <th data-name="alias" rowSpan="2" className="border--right">
             <div className="flex">
               <div>Turno</div>
               <div>
@@ -43,29 +43,32 @@ const TableComponent = (props) => (
               </div>
             </div>
           </th>
-          <th data-name="alias">
+          <th data-name="alias" colSpan="2" className="border--right">
             <div className="flex">
               <div>
                 <div>Riesgo jornada laboral</div>
-                <div>Fecha nivel</div>
               </div>
               <div>
                 <i className="fas fa-sort" />
               </div>
             </div>
           </th>
-          <th data-name="alias">
+          <th data-name="alias" colSpan="3" className="border--right">
             <div className="flex">
               <div>
                 <div>Aptitud laboral</div>
-                <div>Fecha nivel test</div>
               </div>
               <div>
                 <i className="fas fa-sort" />
               </div>
             </div>
           </th>
-          <th data-name="alias">
+          <th
+            data-name="alias"
+            colSpan="2"
+            className="border--right"
+            className="border--right"
+          >
             <div className="flex">
               <div>Modelo conducta</div>
               <div>
@@ -73,7 +76,16 @@ const TableComponent = (props) => (
               </div>
             </div>
           </th>
-          <th className="center border-tr"></th>
+          <th className="center border-tr" rowSpan="2" />
+        </tr>
+        <tr>
+          <th>Fecha</th>
+          <th className="border--right">Nivel</th>
+          <th>Fecha</th>
+          <th>Nivel</th>
+          <th className="border--right">Test</th>
+          <th>Fecha</th>
+          <th className="border--right">Nivel</th>
         </tr>
       </thead>
       <tbody>
@@ -83,26 +95,38 @@ const TableComponent = (props) => (
               <i className="fas fa-eye" />
             </a>
           </td>
-          <td>Cristóbal Maturana</td>
-          <td>Operación 1</td>
-          <td>Área 1</td>
-          <td>A</td>
+          <td>Leoanardo Causa</td>
+          <td>Operación 2</td>
+          <td>Área 2</td>
+          <td>C</td>
+          <td>
+            <p>31-03-2020-08:00</p>
+          </td>
           <td className="red">
             <p>
-              27-03-2020 08:00 <span>100</span>
+              <span>100</span>
             </p>
+          </td>
+          <td>
+            <p>31-03-2020 08:00</p>
           </td>
           <td className="yellow">
             <p>
-              31-03-2020 08:00 <span>80</span> FIT 2000
+              <span>30</span>
             </p>
           </td>
-          <td className="yellow">
+          <td>
+            <p>Sobereye</p>
+          </td>
+          <td>
+            <p>27-03-2020 08:00</p>
+          </td>
+          <td className="green">
             <p>
-              27-03-2020 08:00 <span>20</span>
+              <span>10</span>
             </p>
           </td>
-          <td className="center">
+          <td className="center border-br">
             <a href="#" className="table-button--normal">
               <i className="fas fa-ellipsis-v"></i>
             </a>
@@ -118,19 +142,31 @@ const TableComponent = (props) => (
           <td>Operación 4</td>
           <td>Área 4</td>
           <td>B</td>
+          <td>
+            <p>31-03-2020 08:00</p>
+          </td>
           <td className="red">
             <p>
-              31-03-2020 08:00 <span>100</span>
+              <span>100</span>
             </p>
+          </td>
+          <td>
+            <p>31-03-2020 08:00</p>
           </td>
           <td className="yellow">
             <p>
-              31-03-2020 08:00 <span>30</span> K-Test
+              <span>30</span>
             </p>
+          </td>
+          <td>
+            <p>K-Test</p>
+          </td>
+          <td>
+            <p>27-03-2020 08:00</p>
           </td>
           <td className="green">
             <p>
-              27-03-2020 08:00 <span>10</span>
+              <span>10</span>
             </p>
           </td>
           <td className="center border-br">
@@ -145,26 +181,38 @@ const TableComponent = (props) => (
               <i className="fas fa-eye" />
             </a>
           </td>
-          <td>Leoanardo Causa</td>
-          <td>Operación 2</td>
-          <td>Área 2</td>
-          <td>C</td>
-          <td className="yellow">
-            <p>
-              01-04-2020 08:00 <span>70</span>
-            </p>
+          <td>Max Munro</td>
+          <td>Operación 4</td>
+          <td>Área 4</td>
+          <td>A</td>
+          <td>
+            <p>31-03-2020 08:00</p>
           </td>
           <td className="green">
             <p>
-              31-03-2020 08:00 <span>10</span> Sobereye
+              <span>80</span>
             </p>
           </td>
-          <td className="red">
+          <td>
+            <p>31-03-2020 08:00</p>
+          </td>
+          <td className="yellow">
             <p>
-              27-03-2020 08:00 <span>100</span>
+              <span>30</span>
             </p>
           </td>
-          <td className="center">
+          <td>
+            <p>K-Test</p>
+          </td>
+          <td>
+            <p>27-03-2020 08:00</p>
+          </td>
+          <td className="yellow">
+            <p>
+              <span>30</span>
+            </p>
+          </td>
+          <td className="center border-br">
             <a href="#" className="table-button--normal">
               <i className="fas fa-ellipsis-v"></i>
             </a>
@@ -176,26 +224,38 @@ const TableComponent = (props) => (
               <i className="fas fa-eye" />
             </a>
           </td>
-          <td>Max Munro</td>
-          <td>Operación 3</td>
-          <td>Área 3</td>
-          <td>B</td>
+          <td>Cristóbal Maturana</td>
+          <td>Operación 1</td>
+          <td>Área 1</td>
+          <td>A</td>
+          <td>
+            <p>31-03-2020 08:00</p>
+          </td>
           <td className="green">
             <p>
-              20-04-2020 08:00 <span>10</span>
+              <span>10</span>
             </p>
           </td>
-          <td className="red">
-            <p>
-              31-03-2020 08:00 <span>90</span> FIT 2000
-            </p>
+          <td>
+            <p>27-03-2020 08:00</p>
           </td>
           <td className="yellow">
             <p>
-              27-03-2020 08:00 <span>20</span>
+              <span>80</span>
             </p>
           </td>
-          <td className="center">
+          <td>
+            <p>Fit 2000</p>
+          </td>
+          <td>
+            <p>27-03-2020 08:00</p>
+          </td>
+          <td className="yellow">
+            <p>
+              <span>20</span>
+            </p>
+          </td>
+          <td className="center border-br">
             <a href="#" className="table-button--normal">
               <i className="fas fa-ellipsis-v"></i>
             </a>
