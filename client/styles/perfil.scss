@@ -75,6 +75,9 @@
       flex-wrap: wrap;
       &.secondDataInfoBottom {
         margin-top: 32px;
+        @include respond-to(desktop) {
+          margin-top: 0;
+        }
         @include respond-to(tabletPhone) {
           margin-top: 0;
         }
@@ -82,6 +85,10 @@
       > div {
         width: calc(100% / 4);
         @include respond-to(tabletPhone) {
+          width: calc(100% / 2);
+          margin-bottom: 10px;
+        }
+        @include respond-to(desktop) {
           width: calc(100% / 2);
           margin-bottom: 10px;
         }
