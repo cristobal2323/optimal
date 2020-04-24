@@ -9,7 +9,7 @@ import LogoSmall from '../../styles/img/optimal-white-small.png';
 
 /* Components */
 import Home from '../../components/nav/home';
-import Ffd from '../../components/nav/ffd';
+import Persona from '../../components/nav/persona';
 import Behavior from '../../components/nav/behavior';
 
 class Nav extends Component {
@@ -21,7 +21,7 @@ class Nav extends Component {
   /* Estado donde realizamos el llamado a la API */
   async componentDidMount() {}
 
-  handleMenu = event => {
+  handleMenu = (event) => {
     const element = event.currentTarget;
     const childName = element.dataset.child;
     const menus = document.querySelectorAll('[data-menu]');
@@ -43,7 +43,7 @@ class Nav extends Component {
     element.classList.toggle('active');
   };
 
-  handleSubMenu = event => {
+  handleSubMenu = (event) => {
     const element = event.currentTarget;
     console.log('a');
     const submenus = document.querySelectorAll('[data-submenu]');
@@ -93,7 +93,7 @@ class Nav extends Component {
           <ul>
             {true && <Home handleMenu={this.handleMenu} />}
             {true && (
-              <Ffd
+              <Persona
                 handleSubMenu={this.handleSubMenu}
                 handleMenu={this.handleMenu}
               />
@@ -119,9 +119,9 @@ class Nav extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
 Nav.propTypes = {};
 

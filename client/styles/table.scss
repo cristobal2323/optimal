@@ -131,3 +131,22 @@
     }
   }
 }
+
+.table-title {
+  padding: 8px;
+  h2 {
+    color: #ede8ea;
+    font-size: 16px;
+    display: inline-block;
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #f82873;
+    border-radius: 3px;
+    border: solid 1px $base-color;
+    margin-right: 10px;
+  }
+}

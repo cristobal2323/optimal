@@ -166,7 +166,10 @@
       margin: 0;
       color: #ede8ea;
       font-size: 11px;
+      display: flex;
+      flex-wrap: wrap;
       li {
+        margin: 10px;
         &:before {
           content: '';
           display: inline-block;

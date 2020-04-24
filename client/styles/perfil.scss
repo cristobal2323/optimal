@@ -1,0 +1,104 @@
+.module--perfil {
+  display: flex;
+  flex-wrap: wrap;
+  .module--perfil__mainData {
+    width: 250px;
+    border-right: solid #ede8ea 1px;
+    @include respond-to(mobile) {
+      width: 100%;
+    }
+    .module--perfil__mainDataImg {
+      width: 100px;
+      margin: auto;
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+    .module--perfil__mainDataInfo {
+      h3 {
+        color: #ede8ea;
+        font-size: 16px;
+        text-align: center;
+        margin: 16px 0;
+      }
+      h2 {
+        color: #ede8ea;
+        font-size: 13px;
+        text-align: center;
+        margin-top: 8px;
+        strong.red {
+          color: #ff2f1e;
+        }
+        strong.yellow {
+          color: #feb71b;
+        }
+        strong.green {
+          color: #00c756;
+        }
+      }
+    }
+  }
+  .module--perfil__secondData {
+    display: flex;
+    padding: 0 16px;
+    align-content: center;
+    flex-wrap: wrap;
+    width: calc(100% - 250px);
+    @include respond-to(mobile) {
+      width: 100%;
+    }
+    .module--perfil__secondDataTitle {
+      width: 100%;
+      h3 {
+        color: #ede8ea;
+        font-size: 16px;
+        padding-bottom: 16px;
+      }
+    }
+    .module--perfil__secondDataInfo {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      &.secondDataInfoBottom {
+        margin-top: 32px;
+        @include respond-to(tabletPhone) {
+          margin-top: 0;
+        }
+      }
+      > div {
+        width: calc(100% / 4);
+        @include respond-to(tabletPhone) {
+          width: calc(100% / 2);
+          margin-bottom: 10px;
+        }
+        &.bottom {
+          margin-bottom: 30px;
+        }
+        h4 {
+          color: #ede8ea;
+          font-size: 16px;
+          &:before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #f82873;
+            border-radius: 3px;
+            border: solid 1px $base-color;
+            margin-right: 10px;
+          }
+        }
+        h5 {
+          color: #ede8ea;
+          font-size: 14px;
+          padding-left: 20px;
+          @include respond-to(mobile) {
+            font-size: 13px;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

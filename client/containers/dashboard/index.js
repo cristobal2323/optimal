@@ -13,6 +13,8 @@ import Home from '../home';
 import Header from '../header';
 import Nav from '../nav';
 
+import PersonDetails from '../person_details';
+
 import Loading from '../common/loading';
 import Modal from '../common/modal';
 
@@ -64,6 +66,11 @@ class Dashboard extends Component {
                       path={`${this.props.match.path}/home`}
                       component={Home}
                     />
+                    <Route
+                      exact
+                      path={`${this.props.match.path}/person_details`}
+                      component={PersonDetails}
+                    />
                   </React.Fragment>
                 ) : (
                   <Loading />
@@ -80,13 +87,13 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.dashboard.data,
   loading: state.dashboard.loading,
   status: state.dashboard.status,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   loginActions: bindActionCreators(loginactions, dispatch),
   actions: bindActionCreators(dashboardActions, dispatch),
 });
