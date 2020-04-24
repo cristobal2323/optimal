@@ -1,6 +1,18 @@
 .module--perfil {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
+  .module--perfil__mainDataGraph {
+    width: 250px;
+    height: 200px;
+    padding: 10px;
+    @include respond-to(tabletPhone) {
+      width: calc(100% - 250px);
+    }
+    @include respond-to(mobile) {
+      width: calc(100%);
+    }
+  }
   .module--perfil__mainData {
     width: 250px;
     border-right: solid #ede8ea 1px;
@@ -15,6 +27,7 @@
         border-radius: 50%;
       }
     }
+
     .module--perfil__mainDataInfo {
       h3 {
         color: #ede8ea;
@@ -44,8 +57,8 @@
     padding: 0 16px;
     align-content: center;
     flex-wrap: wrap;
-    width: calc(100% - 250px);
-    @include respond-to(mobile) {
+    width: calc(100% - 500px);
+    @include respond-to(tabletPhone) {
       width: 100%;
     }
     .module--perfil__secondDataTitle {
