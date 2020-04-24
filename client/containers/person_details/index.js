@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 /* Components */
 import Perfil from '../../components/person_details/perfil';
 import Area from '../../components/person_details/area';
-import Table from '../../components/person_details/Table';
+import Table from '../../components/person_details/table';
 
 class PersonDetails extends Component {
   constructor(props) {
