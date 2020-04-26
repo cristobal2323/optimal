@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from 'recharts';
 
-const COLORS = ['#FF2F1E', '#FEB71B', '#00C756'];
+const COLORS = ['#FF2F1E', '#fe891b', '#d8db25', '#00C756'];
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,

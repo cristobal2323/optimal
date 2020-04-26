@@ -11,16 +11,18 @@ const Message = (props) => (
         <div className="grid-pie">
           <Pie
             data={[
-              { name: 'En riesgo', value: 40 },
+              { name: 'En riesgo', value: 30 },
               { name: 'Alerta', value: 20 },
-              { name: 'Optimo', value: 40 },
+              { name: 'Bajo riesgo', value: 20 },
+              { name: 'Optimo', value: 34 },
             ]}
           />
         </div>
         <div className="grid-simbo">
           <ul>
             <li className="red">En riesgo</li>
-            <li className="yellow">Alerta</li>
+            <li className="yellow">Bajo riesgo</li>
+            <li className="orange">Alerta</li>
             <li className="green">Optimo</li>
           </ul>
         </div>
@@ -38,18 +40,52 @@ const Message = (props) => (
           <h2>Aptitud laboral</h2>
         </div>
         <div className="grid-pie">
-          <Pie
-            data={[
-              { name: 'En riesgo', value: 30 },
-              { name: 'Alerta', value: 10 },
-              { name: 'Optimo', value: 40 },
-            ]}
-          />
+          <table className="grid-pieTable">
+            <tbody>
+              <tr>
+                <th rowSpan="2" colSpan="2">
+                  {' '}
+                  Test
+                </th>
+                <th colSpan="4">Indicadores de riesgo</th>
+              </tr>
+              <tr>
+                <th>Optimo</th>
+                <th>Bajo riesgo</th>
+                <th>Alerta</th>
+                <th>En riesgo</th>
+              </tr>
+
+              <tr>
+                <td colSpan="2">Fit 200</td>
+                <td className="optimo">4</td>
+                <td className="bajoriesgo">3</td>
+                <td className="alerta">2</td>
+                <td className="enriesgo">2</td>
+              </tr>
+              <tr>
+                <td colSpan="2">Sobereye</td>
+                <td className="optimo-2" colSpan="3">
+                  5
+                </td>
+                <td className="enriesgo">1</td>
+              </tr>
+              <tr>
+                <td colSpan="2">K-test</td>
+                <td className="optimo-3" colSpan="2">
+                  5
+                </td>
+                <td className="alerta">2</td>
+                <td className="enriesgo">1</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div className="grid-simbo">
           <ul>
             <li className="red">En riesgo</li>
-            <li className="yellow">Alerta</li>
+            <li className="yellow">Bajo riesgo</li>
+            <li className="orange">Alerta</li>
             <li className="green">Optimo</li>
           </ul>
         </div>
@@ -71,6 +107,7 @@ const Message = (props) => (
             data={[
               { name: 'En riesgo', value: 60 },
               { name: 'Alerta', value: 20 },
+              { name: 'Bajo riesgo', value: 10 },
               { name: 'Optimo', value: 30 },
             ]}
           />
@@ -78,7 +115,8 @@ const Message = (props) => (
         <div className="grid-simbo">
           <ul>
             <li className="red">En riesgo</li>
-            <li className="yellow">Alerta</li>
+            <li className="yellow">Bajo riesgo</li>
+            <li className="orange">Alerta</li>
             <li className="green">Optimo</li>
           </ul>
         </div>

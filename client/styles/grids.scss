@@ -31,6 +31,55 @@
     z-index: 1;
     height: 200px;
     margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    .grid-pieTable {
+      border-collapse: collapse;
+      width: 100%;
+      color: #ede8ea;
+      font-size: 11px;
+      td,
+      th {
+        border: 1px solid #ede8ea;
+        font-weight: normal;
+        align-items: center;
+        padding: 5px;
+        text-align: center;
+        &.optimo {
+          background-color: #00c756;
+        }
+        &.optimo-2 {
+          color: $base-color;
+          background: rgb(0, 199, 86);
+          background: linear-gradient(
+            90deg,
+            rgba(0, 199, 86, 1) 0%,
+            rgba(254, 253, 27, 1) 39%,
+            rgba(254, 253, 27, 1) 65%,
+            rgba(254, 137, 27, 1) 90%
+          );
+        }
+        &.optimo-3 {
+          color: $base-color;
+          background: rgb(0, 199, 86);
+          background: linear-gradient(
+            90deg,
+            rgba(0, 199, 86, 1) 0%,
+            rgba(254, 253, 27, 1) 51%
+          );
+        }
+        &.alerta {
+          background-color: #fe891b;
+        }
+        &.bajoriesgo {
+          background-color: #fefd1b;
+          color: $base-color;
+        }
+        &.enriesgo {
+          background-color: #ff2f1e;
+        }
+      }
+    }
   }
   .grid-button_container {
     display: flex;
@@ -83,7 +132,10 @@
             background-color: #00c756;
           }
           &.active.alerta {
-            background-color: #feb71b;
+            background-color: #fe891b;
+          }
+          &.active.bajoriesgo {
+            background-color: #fefd1b;
           }
           &.active.enriesgo {
             background-color: #ff2f1e;
@@ -152,7 +204,10 @@
         color: #ff2f1e;
       }
       strong.yellow {
-        color: #feb71b;
+        color: #fefd1b;
+      }
+      strong.orange {
+        color: #fe891b;
       }
       strong.green {
         color: #00c756;
@@ -187,7 +242,12 @@
         }
         &.yellow {
           &:before {
-            background: #feb71b;
+            background: #fefd1b;
+          }
+        }
+        &.orange {
+          &:before {
+            background: #fe891b;
           }
         }
         &.green {
@@ -200,12 +260,17 @@
             background: #9bf0ac;
           }
         }
+        &.riesgo-alerta {
+          &:before {
+            background: #fe891b;
+          }
+        }
         &.riesgo-enriesgo {
           &:before {
             background: #cb2e56;
           }
         }
-        &.riesgo-alerta {
+        &.riesgo-bajoriesgo {
           &:before {
             background: #e7e30d;
           }
@@ -215,7 +280,7 @@
             background: #6bf620;
           }
         }
-        &.aptitud-alerta {
+        &.aptitud-bajoriesgo {
           &:before {
             background: #e7e30d;
           }
@@ -230,7 +295,7 @@
             background: #a9f372;
           }
         }
-        &.conducta-alerta {
+        &.conducta-bajoriesgo {
           &:before {
             background: #f3db72;
           }
