@@ -7,6 +7,7 @@ const Message = (props) => (
       <div className="grid-3">
         <div className="grid-title">
           <h2>Riesgo jornada laboral</h2>
+          <p>(Cantiadad de trabajadores)</p>
         </div>
         <div className="grid-pie">
           <Pie
@@ -20,10 +21,10 @@ const Message = (props) => (
         </div>
         <div className="grid-simbo">
           <ul>
-            <li className="red">En riesgo</li>
+            <li className="green">Optimo</li>
             <li className="yellow">Bajo riesgo</li>
             <li className="orange">Alerta</li>
-            <li className="green">Optimo</li>
+            <li className="red">En riesgo</li>
           </ul>
         </div>
         <div className="grid-title top topX2">
@@ -38,6 +39,7 @@ const Message = (props) => (
       <div className="grid-3">
         <div className="grid-title">
           <h2>Aptitud laboral</h2>
+          <p>(Cantiadad de trabajadores)</p>
         </div>
         <div className="grid-pie">
           <table className="grid-pieTable">
@@ -83,10 +85,10 @@ const Message = (props) => (
         </div>
         <div className="grid-simbo">
           <ul>
-            <li className="red">En riesgo</li>
+            <li className="green">Optimo</li>
             <li className="yellow">Bajo riesgo</li>
             <li className="orange">Alerta</li>
-            <li className="green">Optimo</li>
+            <li className="red">En riesgo</li>
           </ul>
         </div>
         <div className="grid-title top topX2">
@@ -101,6 +103,7 @@ const Message = (props) => (
       <div className="grid-3">
         <div className="grid-title">
           <h2>Evaluación conductual</h2>
+          <p>(Cantiadad de trabajadores)</p>
         </div>
         <div className="grid-pie">
           <Pie
@@ -114,10 +117,10 @@ const Message = (props) => (
         </div>
         <div className="grid-simbo">
           <ul>
-            <li className="red">En riesgo</li>
+            <li className="green">Optimo</li>
             <li className="yellow">Bajo riesgo</li>
             <li className="orange">Alerta</li>
-            <li className="green">Optimo</li>
+            <li className="red">En riesgo</li>
           </ul>
         </div>
         <div className="grid-title top topX2">
