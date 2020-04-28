@@ -42,11 +42,11 @@ const Area = (props) => {
                   Riesgo jornada laboral
                 </li>
                 <li
-                  data-name="aptitud"
+                  data-name="fit2000"
                   onClick={props.handleFilter}
-                  className={props.aptitud ? 'active' : ''}
+                  className={props.fit2000 ? 'active' : ''}
                 >
-                  Aptitud laboral
+                  Fit 2000
                 </li>
                 <li
                   data-name="conducta"
@@ -106,6 +106,13 @@ const Area = (props) => {
                   Optimo
                 </li>
                 <li
+                  data-name="bajoRiesgo"
+                  onClick={props.handleFilter}
+                  className={props.bajoRiesgo ? 'active bajoriesgo' : ''}
+                >
+                  Bajo riesgo
+                </li>
+                <li
                   data-name="alerta"
                   onClick={props.handleFilter}
                   className={props.alerta ? 'active alerta' : ''}
@@ -128,18 +135,24 @@ const Area = (props) => {
           </div>
           <div className="grid-pie">
             <AreaGraph
-              aptitud={props.aptitud}
+              fit2000={props.fit2000}
               riesgo={props.riesgo}
               conducta={props.conducta}
               optimo={props.optimo}
               enriesgo={props.enriesgo}
               alerta={props.alerta}
+              bajoRiesgo={props.bajoRiesgo}
             />
           </div>
           <div className="grid-simbo top">
             <ul>
               {props.riesgo && props.optimo && (
                 <li className="riesgo-optimo">Riesgo jornada laboral Optimo</li>
+              )}
+              {props.riesgo && props.alerta && (
+                <li className="riesgo-bajoriesgo">
+                  Riesgo jornada laboral Bajo riesgo
+                </li>
               )}
               {props.riesgo && props.alerta && (
                 <li className="riesgo-alerta">Riesgo jornada laboral Alerta</li>
@@ -149,17 +162,27 @@ const Area = (props) => {
                   Riesgo jornada laboral En riesgo
                 </li>
               )}
-              {props.aptitud && props.optimo && (
-                <li className="aptitud-optima">Aptitud laboral Optimo</li>
+              {props.fit2000 && props.optimo && (
+                <li className="fit2000-optima">Aptitud laboral Optimo</li>
               )}
-              {props.aptitud && props.alerta && (
-                <li className="aptitud-alerta">Aptitud laboral Alerta</li>
+              {props.fit2000 && props.bajoRiesgo && (
+                <li className="fit2000-bajoriesgo">
+                  Aptitud laboral Bajo riesgo
+                </li>
               )}
-              {props.aptitud && props.enriesgo && (
-                <li className="aptitud-enrisgo">Aptitud laboral En riesgo</li>
+              {props.fit2000 && props.alerta && (
+                <li className="fit2000-alerta">Aptitud laboral Alerta</li>
+              )}
+              {props.fit2000 && props.enriesgo && (
+                <li className="fit2000-enrisgo">Aptitud laboral En riesgo</li>
               )}
               {props.conducta && props.optimo && (
                 <li className="conducta-optima">Modelo conducta Optimo</li>
+              )}
+              {props.conducta && props.bajoRiesgo && (
+                <li className="conducta-bajoriesgo">
+                  Modelo conducta Bajo riesgo
+                </li>
               )}
               {props.conducta && props.alerta && (
                 <li className="conducta-alerta">Modelo conducta Alerta</li>

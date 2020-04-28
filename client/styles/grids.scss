@@ -142,6 +142,7 @@
           }
           &.active.bajoriesgo {
             background-color: #fefd1b;
+            color: $base-color;
           }
           &.active.enriesgo {
             background-color: #ff2f1e;
@@ -266,6 +267,11 @@
             background: #9bf0ac;
           }
         }
+        &.riesgo-bajoriesgo {
+          &:before {
+            background: #f0ef9b;
+          }
+        }
         &.riesgo-alerta {
           &:before {
             background: #fe891b;
@@ -281,17 +287,22 @@
             background: #e7e30d;
           }
         }
-        &.aptitud-optima {
+        &.fit2000-optima {
           &:before {
             background: #6bf620;
           }
         }
-        &.aptitud-bajoriesgo {
+        &.fit2000-alerta {
+          &:before {
+            background: #ff9f33;
+          }
+        }
+        &.fit2000-bajoriesgo {
           &:before {
             background: #e7e30d;
           }
         }
-        &.aptitud-enriesgo {
+        &.fit2000-enriesgo {
           &:before {
             background: #f278a4;
           }
@@ -299,6 +310,11 @@
         &.conducta-optima {
           &:before {
             background: #a9f372;
+          }
+        }
+        &.conducta-alerta {
+          &:before {
+            background: #ff7133;
           }
         }
         &.conducta-bajoriesgo {

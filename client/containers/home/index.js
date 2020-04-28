@@ -15,11 +15,12 @@ class Home extends Component {
       startDate: null,
       endDate: null,
       riesgo: true,
-      aptitud: true,
+      fit2000: true,
       conducta: true,
       optimo: true,
       enriesgo: true,
       alerta: true,
+      bajoRiesgo: true,
     };
   }
 
@@ -53,11 +54,12 @@ class Home extends Component {
         <Area
           handleFilter={this.handleFilter}
           riesgo={this.state.riesgo}
-          aptitud={this.state.aptitud}
+          fit2000={this.state.fit2000}
           conducta={this.state.conducta}
           optimo={this.state.optimo}
           enriesgo={this.state.enriesgo}
           alerta={this.state.alerta}
+          bajoRiesgo={this.state.bajoRiesgo}
           startDate={this.state.startDate}
           handleChangeStart={this.handleChangeStart}
           endDate={this.state.endDate}
