@@ -49,50 +49,25 @@ const Area = (props) => {
                   Fit 2000
                 </li>
                 <li
+                  data-name="sobereye"
+                  onClick={props.handleFilter}
+                  className={props.sobereye ? 'active' : ''}
+                >
+                  Sobereye
+                </li>
+                <li
+                  data-name="ktest"
+                  onClick={props.handleFilter}
+                  className={props.ktest ? 'active' : ''}
+                >
+                  K-test
+                </li>
+                <li
                   data-name="conducta"
                   onClick={props.handleFilter}
                   className={props.conducta ? 'active' : ''}
                 >
                   Modelo conducta
-                </li>
-                <li ref={parent} className="menu--date" id="option--menu--date">
-                  Rango seleccionado: Semana
-                  <ul ref={node}>
-                    <li>Día</li>
-                    <li>Semana</li>
-                    <li>Mes</li>
-                    <li>
-                      <div className="grid-button_menu-date">
-                        <div className="grid-button_menu-date_a">Otro: </div>
-                        <div className="grid-button_menu-date_b">
-                          <DatePicker
-                            autoComplete="off"
-                            selected={props.startDate}
-                            onChange={props.handleChangeStart}
-                            isClearable={true}
-                            disabledKeyboardNavigation
-                            placeholderText="Desde"
-                            className="input-date"
-                            id="date-start"
-                            dateFormat="dd-MM-yyyy"
-                          />
-                        </div>
-                        <div className="grid-button_menu-date_b">
-                          <DatePicker
-                            autoComplete="off"
-                            selected={props.endDate}
-                            onChange={props.handleChangeEnd}
-                            isClearable={true}
-                            disabledKeyboardNavigation
-                            placeholderText="Hasta"
-                            className="input-date"
-                            id="date-end"
-                            dateFormat="dd-MM-yyyy"
-                          />
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
                 </li>
               </ul>
             </div>
@@ -128,6 +103,55 @@ const Area = (props) => {
                 </li>
               </ul>
             </div>
+            <div className="grid-button_container">
+              <div className="grid-button">
+                <ul>
+                  <li
+                    ref={parent}
+                    className="menu--date"
+                    id="option--menu--date"
+                  >
+                    Rango seleccionado: Semana
+                    <ul ref={node}>
+                      <li>Día</li>
+                      <li>Semana</li>
+                      <li>Mes</li>
+                      <li>
+                        <div className="grid-button_menu-date">
+                          <div className="grid-button_menu-date_a">Otro: </div>
+                          <div className="grid-button_menu-date_b">
+                            <DatePicker
+                              autoComplete="off"
+                              selected={props.startDate}
+                              onChange={props.handleChangeStart}
+                              isClearable={true}
+                              disabledKeyboardNavigation
+                              placeholderText="Desde"
+                              className="input-date"
+                              id="date-start"
+                              dateFormat="dd-MM-yyyy"
+                            />
+                          </div>
+                          <div className="grid-button_menu-date_b">
+                            <DatePicker
+                              autoComplete="off"
+                              selected={props.endDate}
+                              onChange={props.handleChangeEnd}
+                              isClearable={true}
+                              disabledKeyboardNavigation
+                              placeholderText="Hasta"
+                              className="input-date"
+                              id="date-end"
+                              dateFormat="dd-MM-yyyy"
+                            />
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div className="grid-title top">
@@ -136,6 +160,8 @@ const Area = (props) => {
           <div className="grid-pie">
             <AreaGraph
               fit2000={props.fit2000}
+              ktest={props.ktest}
+              sobereye={props.sobereye}
               riesgo={props.riesgo}
               conducta={props.conducta}
               optimo={props.optimo}
@@ -163,18 +189,31 @@ const Area = (props) => {
                 </li>
               )}
               {props.fit2000 && props.optimo && (
-                <li className="fit2000-optima">Aptitud laboral Optimo</li>
+                <li className="fit2000-optima">Fit 2000 Optimo</li>
               )}
               {props.fit2000 && props.bajoRiesgo && (
-                <li className="fit2000-bajoriesgo">
-                  Aptitud laboral Bajo riesgo
-                </li>
+                <li className="fit2000-bajoriesgo">Fit 2000 Bajo riesgo</li>
               )}
               {props.fit2000 && props.alerta && (
-                <li className="fit2000-alerta">Aptitud laboral Alerta</li>
+                <li className="fit2000-alerta">Fit 2000 Alerta</li>
               )}
               {props.fit2000 && props.enriesgo && (
-                <li className="fit2000-enrisgo">Aptitud laboral En riesgo</li>
+                <li className="fit2000-enrisgo">Fit 2000 En riesgo</li>
+              )}
+              {props.sobereye && props.optimo && (
+                <li className="sobereye-optima">Sobereye Optimo</li>
+              )}
+              {props.sobereye && props.enriesgo && (
+                <li className="sobereye-enriesgo">Sobereye En riesgo</li>
+              )}
+              {props.ktest && props.optimo && (
+                <li className="ktest-optima">K-test Optimo</li>
+              )}
+              {props.ktest && props.alerta && (
+                <li className="ktest-alerta">K-test Alerta</li>
+              )}
+              {props.ktest && props.enriesgo && (
+                <li className="ktest-enriesgo">K-test En riesgo</li>
               )}
               {props.conducta && props.optimo && (
                 <li className="conducta-optima">Modelo conducta Optimo</li>

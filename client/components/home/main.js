@@ -41,7 +41,7 @@ const Message = (props) => (
           <h2>Aptitud laboral</h2>
           <p>(Cantiadad de trabajadores)</p>
         </div>
-        <div className="grid-pie">
+        <div className="grid-pie grid-pieScroll">
           <table className="grid-pieTable">
             <tbody>
               <tr>
@@ -57,7 +57,6 @@ const Message = (props) => (
                 <th>Alerta</th>
                 <th>En riesgo</th>
               </tr>
-
               <tr>
                 <td colSpan="2">Fit 200</td>
                 <td className="optimo">4</td>

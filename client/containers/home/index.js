@@ -16,6 +16,8 @@ class Home extends Component {
       endDate: null,
       riesgo: true,
       fit2000: true,
+      ktest: true,
+      sobereye: true,
       conducta: true,
       optimo: true,
       enriesgo: true,
@@ -55,6 +57,8 @@ class Home extends Component {
           handleFilter={this.handleFilter}
           riesgo={this.state.riesgo}
           fit2000={this.state.fit2000}
+          ktest={this.state.ktest}
+          sobereye={this.state.sobereye}
           conducta={this.state.conducta}
           optimo={this.state.optimo}
           enriesgo={this.state.enriesgo}

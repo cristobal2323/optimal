@@ -39,6 +39,11 @@
     margin-top: 1rem;
     display: flex;
     align-items: center;
+    @include respond-to(tabletPhone) {
+      &.grid-pieScroll {
+        overflow: scroll;
+      }
+    }
     .grid-pieTable {
       border-collapse: collapse;
       width: 100%;
@@ -90,6 +95,7 @@
   .grid-button_container {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: space-between;
     .grid-button {
       position: relative;
@@ -305,6 +311,31 @@
         &.fit2000-enriesgo {
           &:before {
             background: #f278a4;
+          }
+        }
+        &.sobereye-optima {
+          &:before {
+            background: #399208;
+          }
+        }
+        &.ktest-optima {
+          &:before {
+            background: #316317;
+          }
+        }
+        &.ktest-alerta {
+          &:before {
+            background: #b8641f;
+          }
+        }
+        &.ktest-enriesgo {
+          &:before {
+            background: #b81f1f;
+          }
+        }
+        &.sobereye-enriesgo {
+          &:before {
+            background: #8b0737;
           }
         }
         &.conducta-optima {
