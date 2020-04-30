@@ -7,7 +7,7 @@ const Message = (props) => (
       <div className="grid-3">
         <div className="grid-title">
           <h2>Riesgo jornada laboral</h2>
-          <p>(Cantiadad de trabajadores)</p>
+          <p>(Cantidad de trabajadores)</p>
         </div>
         <div className="grid-pie">
           <Pie
@@ -39,7 +39,7 @@ const Message = (props) => (
       <div className="grid-3">
         <div className="grid-title">
           <h2>Aptitud laboral</h2>
-          <p>(Cantiadad de trabajadores)</p>
+          <p>(Cantidad de trabajadores)</p>
         </div>
         <div className="grid-pie grid-pieScroll">
           <table className="grid-pieTable">
@@ -102,7 +102,7 @@ const Message = (props) => (
       <div className="grid-3">
         <div className="grid-title">
           <h2>Evaluación conductual</h2>
-          <p>(Cantiadad de trabajadores)</p>
+          <p>(Cantidad de trabajadores)</p>
         </div>
         <div className="grid-pie">
           <Pie
