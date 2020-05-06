@@ -1,9 +1,9 @@
 const config = {
-  api: "https://gateway.antufleet.com",
-  apiSystem: "http://35.223.62.116:8000",
+  api: "http://schedule-risk.dataon.cl:85",
+  apiSystem: "http://schedule-risk.dataon.cl:85",
   port: 3000,
   user: "jwtclientid",
-  pass: "jwtclientsecret"
+  pass: "jwtclientsecret",
 };
 
 module.exports = config;

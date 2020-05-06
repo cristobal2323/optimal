@@ -45,7 +45,6 @@ class Nav extends Component {
 
   handleSubMenu = (event) => {
     const element = event.currentTarget;
-    console.log('a');
     const submenus = document.querySelectorAll('[data-submenu]');
 
     for (let i = 0; i < submenus.length; i++) {
@@ -78,6 +77,9 @@ class Nav extends Component {
   };
 
   render() {
+    const name = localStorage.getItem('nombre');
+    const email = localStorage.getItem('email');
+    const rol = localStorage.getItem('rol');
     return (
       <nav id="mobile-1" className="module--dashboardNav">
         <div className="module--dashboardNav__logo">
@@ -85,9 +87,9 @@ class Nav extends Component {
           <img src={LogoSmall} className="logoMobile" alt="Logo" />
         </div>
         <div className="module--dashboardNav__perfil">
-          <h3>Pedro Gonzalez Perez</h3>
-          <p>Gerente operacional</p>
-          <a href="#">pedrogonzalez@gmail.com</a>
+          <h3>{name}</h3>
+          <p>{rol}</p>
+          <a href="#">{email}</a>
         </div>
         <div className="module--dashboardNav__menu">
           <ul>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /* Component */
 import { Form, Button, Alert } from 'react-bootstrap';
 
-const FormLogin = props => (
+const FormLogin = (props) => (
   <div className="module--loginForm">
     <h1>Bienvenidos</h1>
     <p>Sistema de control optimal</p>
@@ -23,7 +23,7 @@ const FormLogin = props => (
         </Button>
       </div>
     </Form>
-    {props.status === 404 && (
+    {props.status === 401 && (
       <Alert variant={'danger'} className="top center">
         Usuario o clave incorrecta
       </Alert>

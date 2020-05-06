@@ -22,7 +22,7 @@ const Config = (props) => {
 
   return (
     <div ref={parent} className="module--dashboardHeaderName">
-      <h2>{props.name}</h2>
+      <h2>{props.email}</h2>
       <div className="module--dashboardHeaderName__avatar">
         {props.nameShort}
       </div>

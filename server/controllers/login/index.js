@@ -1,32 +1,69 @@
 const fetch = require("isomorphic-fetch");
 const Config = require("../config/index");
-const FormData = require("form-data");
-const base64 = require("base-64");
 
 async function handlePost(req, res) {
   try {
-    /* nuevo login */
+    /* Variable */
+    let data = {};
+    let data1 = {};
+    let data2 = {};
 
-    const formData = new FormData();
-    formData.append("username", req.body.correo);
-    formData.append("password", req.body.clave);
-    formData.append("grant_type", "password");
-
-    const base = base64.encode(Config.user + ":" + Config.pass);
-    const response = await fetch(`${Config.apiSystem}/oauth/token`, {
-      method: "POST",
-      headers: new Headers({
-        Authorization: `Basic ${base}`,
-        credentials: "include"
-      }),
-      body: formData
-    });
-
+    /* Login */
+    const response = await fetch(
+      `${Config.apiSystem}/authenticate?email=${req.body.correo}&password=${req.body.clave}`,
+      {
+        method: "POST",
+      }
+    );
     const status = response.status;
-    const data = await response.json();
-    req.session.tokenNew = data.access_token;
-    console.log(data);
-    return res.status(status).send(data);
+    data = await response.json();
+    /* End Api Login */
+
+    if (status === 200) {
+      /* User */
+      const response1 = await fetch(
+        `${Config.apiSystem}/user.json?email=${req.body.correo}`,
+        {
+          method: "GET",
+          headers: new Headers({
+            Authorization: `Bearer ${data.auth_token}`,
+            accept: "application/json;",
+            "Content-Type": "application/json;charset=UTF-8",
+          }),
+        }
+      );
+      const status1 = response1.status;
+      data1 = await response1.json();
+      /* End APi User */
+
+      /* Client */
+      const response2 = await fetch(
+        `${Config.apiSystem}/cliente.json?cliente_id=${data.cliente_id}`,
+        {
+          method: "GET",
+          headers: new Headers({
+            Authorization: `Bearer ${data.auth_token}`,
+            accept: "application/json;",
+            "Content-Type": "application/json;charset=UTF-8",
+          }),
+        }
+      );
+      const status2 = response2.status;
+      data2 = await response2.json();
+      /* End APi Client */
+    }
+
+    /*  Data se prepara para ser enviado al Front */
+    const dataGeneral = {
+      login: data,
+      user: data1,
+      client: data2,
+    };
+
+    /* Se controla las sesiones */
+    req.session.token = data.auth_token;
+
+    return res.status(status).send(dataGeneral);
   } catch (err) {
     console.log(err);
     return res.status(401).send({ message: "Problem API" });
@@ -34,5 +71,5 @@ async function handlePost(req, res) {
 }
 
 module.exports = {
-  handlePost
+  handlePost,
 };

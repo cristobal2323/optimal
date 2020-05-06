@@ -29,22 +29,26 @@ export default function login(state = initialState, action) {
         auth: false,
       };
     case SAVE_LOGIN_SUCCESS: {
-      const auth =
-        action.payload.status === 200 || action.payload.status === 201
-          ? true
-          : false;
+      const auth = action.payload.status === 200 ? true : false;
       if (auth) {
         localStorage.setItem('auth', auth);
-        localStorage.setItem('nombre', action.payload.data.userName);
+        localStorage.setItem('nombre', action.payload.data.user.datos.nombre);
+        localStorage.setItem('email', action.payload.data.user.datos.email);
+        localStorage.setItem('rol', action.payload.data.user.datos.rol);
+        localStorage.setItem(
+          'logoClient',
+          action.payload.data.client.datos.logo.filename_path,
+        );
+        localStorage.setItem(
+          'cliente',
+          action.payload.data.client.datos.nombre,
+        );
       }
       return {
         ...state,
         loading: false,
         status: action.payload.status,
-        auth:
-          action.payload.status === 200 || action.payload.status === 201
-            ? true
-            : false,
+        auth: action.payload.status === 200 ? true : false,
       };
     }
     case SAVE_LOGIN_FAILURE:

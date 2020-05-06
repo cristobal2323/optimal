@@ -97,6 +97,23 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
+    &.justify--normal {
+      justify-content: normal;
+      align-items: center;
+    }
+    .grid-button_select {
+      margin-right: 10px;
+      .form-group {
+        margin-bottom: 0;
+        select {
+          color: #ede8ea;
+          border: solid 1px #ede8ea;
+          font-size: 13px;
+          height: 60px;
+          background: #222a40;
+        }
+      }
+    }
     .grid-button {
       position: relative;
       z-index: 2;
@@ -195,6 +212,10 @@
               color: $base-color;
               margin: 0;
               padding: 0;
+              &.active--color,
+              &:hover {
+                color: #cb2e56;
+              }
               + li {
                 margin-top: 5px;
               }
@@ -379,5 +400,9 @@
     border-radius: 5px;
     padding: 1rem;
     margin: 0 8px;
+    &.no-color {
+      background: transparent;
+      padding: 0 1rem;
+    }
   }
 }

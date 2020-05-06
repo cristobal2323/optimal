@@ -6,6 +6,7 @@ const cookieSession = require("cookie-session");
 require("./controllers/config/environment");
 
 /* Routers */
+const home = require("./routes/home/");
 const dashboard = require("./routes/dashboard/");
 const login = require("./routes/login/");
 const routes = require("./routes/index");
@@ -20,7 +21,7 @@ app.use(bodyParser.json());
 app.use(
   cookieSession({
     name: "session",
-    keys: ["llave-1"]
+    keys: ["llave-1"],
   })
 );
 
@@ -29,6 +30,9 @@ app.use("/api/login", login.login);
 
 /* Dashboard  */
 app.use("/api/dashboard", dashboard.dashboard);
+
+/* Home */
+app.use("/api/homeAreaTurnos", home.homeAreaTurnos);
 
 app.use("/", routes);
 

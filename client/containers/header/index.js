@@ -26,6 +26,9 @@ class Header extends Component {
 
   render() {
     const name = localStorage.getItem('nombre');
+    const email = localStorage.getItem('email');
+    const client = localStorage.getItem('cliente');
+    const logoClient = localStorage.getItem('logoClient');
     let nameShort = '';
 
     if (name.length > 0) {
@@ -47,12 +50,13 @@ class Header extends Component {
           >
             <i className="fas fa-bars" />
           </a>
-          <Client />
+          <Client logoClient={logoClient} client={client} />
         </div>
 
         <Config
           nameShort={nameShort}
           name={name}
+          email={email}
           handleLogOut={this.props.handleLogOut}
         />
       </section>

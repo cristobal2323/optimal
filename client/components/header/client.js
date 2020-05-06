@@ -1,16 +1,17 @@
 import React from 'react';
 import Logo from '../../styles/img/codelco.png';
+import Config from '../../../server/controllers/config/index';
 
 const Client = (props) => (
   <div className="module--dashboardHeader__client">
     <div>
-      <img src={Logo} alt="logo cliente" />
+      <img src={`${Config.api}${props.logoClient}`} alt="logo cliente" />
     </div>
     <div>
-      <h3>Codelco</h3>
+      <h3>{props.client}</h3>
     </div>
     <div>
-      <h3>División ministro hales</h3>
+      <h3></h3>
     </div>
   </div>
 );

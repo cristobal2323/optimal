@@ -1,32 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import DatePicker from 'react-datepicker';
 import AreaGraph from './areaGraph';
 
 const Area = (props) => {
-  const node = useRef();
-  const parent = useRef();
-
-  const handleClickHide = (e) => {
-    if (parent.current.contains(e.target)) {
-      if (e.target.id === 'option--menu--date') {
-        document
-          .getElementById('option--menu--date')
-          .classList.toggle('active-submenu');
-      }
-    } else if (!node.current.contains(e.target)) {
-      document
-        .getElementById('option--menu--date')
-        .classList.remove('active-submenu');
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickHide);
-    return () => {
-      document.removeEventListener('mousedown', handleClickHide);
-    };
-  }, []);
-
   return (
     <React.Fragment>
       <section className="grids--container top bottom">
@@ -103,57 +78,7 @@ const Area = (props) => {
                 </li>
               </ul>
             </div>
-            <div className="grid-button_container">
-              <div className="grid-button">
-                <ul>
-                  <li
-                    ref={parent}
-                    className="menu--date"
-                    id="option--menu--date"
-                  >
-                    Rango seleccionado: Semana
-                    <ul ref={node}>
-                      <li>Día</li>
-                      <li>Semana</li>
-                      <li>Mes</li>
-                      <li>
-                        <div className="grid-button_menu-date">
-                          <div className="grid-button_menu-date_a">Otro: </div>
-                          <div className="grid-button_menu-date_b">
-                            <DatePicker
-                              autoComplete="off"
-                              selected={props.startDate}
-                              onChange={props.handleChangeStart}
-                              isClearable={true}
-                              disabledKeyboardNavigation
-                              placeholderText="Desde"
-                              className="input-date"
-                              id="date-start"
-                              dateFormat="dd-MM-yyyy"
-                            />
-                          </div>
-                          <div className="grid-button_menu-date_b">
-                            <DatePicker
-                              autoComplete="off"
-                              selected={props.endDate}
-                              onChange={props.handleChangeEnd}
-                              isClearable={true}
-                              disabledKeyboardNavigation
-                              placeholderText="Hasta"
-                              className="input-date"
-                              id="date-end"
-                              dateFormat="dd-MM-yyyy"
-                            />
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
-
           <div className="grid-title top">
             <h2>Comportamiento por semana</h2>
           </div>
