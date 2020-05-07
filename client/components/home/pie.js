@@ -4,7 +4,17 @@ import moment from 'moment';
 
 import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from 'recharts';
 
-const COLORS = ['#FF2F1E', '#fe891b', '#d8db25', '#00C756'];
+const chooseColor = (value) => {
+  if (value.name.toLowerCase() === 'optimo') {
+    return '#00C756';
+  } else if (value.name.toLowerCase() === 'bajo riesgo') {
+    return '#d8db25';
+  } else if (value.name.toLowerCase() === 'alerta') {
+    return '#fe891b';
+  } else if (value.name.toLowerCase() === 'en riesgo') {
+    return '#FF2F1E';
+  }
+};
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,
@@ -44,7 +54,7 @@ const PieComponent = (props) => {
           dataKey="value"
         >
           {props.data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            <Cell key={`cell-${index}`} fill={chooseColor(entry)} />
           ))}
         </Pie>
       </PieChart>

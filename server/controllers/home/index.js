@@ -27,11 +27,32 @@ async function getAreaTurnos(req, res) {
 async function postTortas(req, res) {
   console.log("Listado area turnos");
   try {
-    console.log(`${Config.apiSystem}/drivers`);
+    console.log(`${Config.apiSystem}/rijo24.json`);
     const response = await fetch(`${Config.apiSystem}/rijo24.json`, {
       method: "POST",
       headers: new Headers({
-        Authorization: `Bearer ${req.session.tokenNew}`,
+        Authorization: `Bearer ${req.session.token}`,
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify(req.body),
+    });
+
+    const status = response.status;
+    const data = await response.json();
+    return res.status(status).send(data);
+  } catch (error) {
+    return res.status(401).send({});
+  }
+}
+
+async function postTurnosMasRiesgos(req, res) {
+  console.log("Listado area turnos");
+  try {
+    console.log(`${Config.apiSystem}/masrie.json`);
+    const response = await fetch(`${Config.apiSystem}/masrie.json`, {
+      method: "POST",
+      headers: new Headers({
+        Authorization: `Bearer ${req.session.token}`,
         "Content-Type": "application/json",
       }),
       body: JSON.stringify(req.body),
@@ -47,5 +68,6 @@ async function postTortas(req, res) {
 
 module.exports = {
   getAreaTurnos,
+  postTurnosMasRiesgos,
   postTortas,
 };

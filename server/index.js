@@ -33,6 +33,8 @@ app.use("/api/dashboard", dashboard.dashboard);
 
 /* Home */
 app.use("/api/homeAreaTurnos", home.homeAreaTurnos);
+app.use("/api/homeTortas", home.homeTortas);
+app.use("/api/homeTurnosMasRiesgosos", home.homeTurnosMasRiesgosos);
 
 app.use("/", routes);
 

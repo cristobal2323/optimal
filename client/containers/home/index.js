@@ -33,7 +33,26 @@ class Home extends Component {
 
   /* Estado donde realizamos el llamado a la API */
   async componentDidMount() {
+    /* Fetch Area turnos */
     await this.props.actions.fetchCrudListAreaTurnos({});
+
+    /* Fetch Tortas */
+    await this.props.actions.fetchCrudListTortas({
+      cliente_id: 1,
+      alcance_consulta: 2,
+      desde: '04-01-2020',
+      hasta: '04-30-2020',
+      area_turnos: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    });
+
+    /* Fetch Turnos más riesgosos */
+    await this.props.actions.fetchCrudListTurnosMasRiesgosos({
+      cliente_id: 1,
+      alcance_consulta: 2,
+      desde: '04-01-2020',
+      hasta: '04-30-2020',
+      area_turnos: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    });
   }
 
   /* Función que controla los turnos */
@@ -94,6 +113,7 @@ class Home extends Component {
   };
 
   render() {
+    console.log(this.props.dataTurnosMasRiesgosos);
     return (
       <section>
         <Main
@@ -107,6 +127,10 @@ class Home extends Component {
           statusAreaTurnos={this.props.statusAreaTurnos}
           handleTypeFilter={this.handleTypeFilter}
           typeFilter={this.state.typeFilter}
+          loadingTortas={this.props.loadingTortas}
+          dataTortas={this.props.dataTortas}
+          loadingTurnosMasRiesgosos={this.props.loadingTurnosMasRiesgosos}
+          dataTurnosMasRiesgosos={this.props.dataTurnosMasRiesgosos}
         />
         <Area
           handleFilter={this.handleFilter}
@@ -127,9 +151,17 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  dataTurnosMasRiesgosos: state.home.dataTurnosMasRiesgosos,
+  loadingTurnosMasRiesgosos: state.home.loadingTurnosMasRiesgosos,
+  statusTurnosMasRiesgosos: state.home.statusTurnosMasRiesgosos,
+
   dataAreaTurnos: state.home.dataAreaTurnos,
   loadingAreaTurnos: state.home.loadingAreaTurnos,
   statusAreaTurnos: state.home.statusAreaTurnos,
+
+  dataTortas: state.home.dataTortas,
+  loadingTortas: state.home.loadingTortas,
+  statusTortas: state.home.statusTortas,
 });
 
 const mapDispatchToProps = (dispatch) => ({
