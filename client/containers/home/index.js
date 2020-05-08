@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 
 /* Actions */
 import * as homeActions from '../../actions/home';
 
 /* Components */
+import Modal from '../common/modal';
 import Main from '../../components/home/main';
 import Table from '../../components/home/table';
 import Area from '../../components/home/area';
@@ -15,7 +17,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      typeFilter: 1,
+      typeFilter: 2,
       startDate: null,
       endDate: null,
       riesgo: true,
@@ -27,7 +29,7 @@ class Home extends Component {
       enriesgo: true,
       alerta: true,
       bajoRiesgo: true,
-      turnos: [1],
+      turnos: [],
     };
   }
 
@@ -39,24 +41,49 @@ class Home extends Component {
     /* Fetch Tortas */
     await this.props.actions.fetchCrudListTortas({
       cliente_id: 1,
-      alcance_consulta: 2,
-      desde: '04-01-2020',
-      hasta: '04-30-2020',
-      area_turnos: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      alcance_consulta: this.state.typeFilter,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
     });
 
     /* Fetch Turnos más riesgosos */
     await this.props.actions.fetchCrudListTurnosMasRiesgosos({
       cliente_id: 1,
-      alcance_consulta: 2,
-      desde: '04-01-2020',
-      hasta: '04-30-2020',
-      area_turnos: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      alcance_consulta: this.state.typeFilter,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
+
+    /* Fetch Graph */
+    await this.props.actions.fetchCrudListGraph({
+      cliente_id: 1,
+      alcance_consulta: this.state.typeFilter,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
+
+    /* Fetch Table */
+    await this.props.actions.fetchCrudListTable({
+      cliente_id: 1,
+      reg_inicio: 1,
+      reg_fin: 10,
+      alcance_consulta: this.state.typeFilter,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
     });
   }
 
+  componentWillUnmount() {
+    this.props.actions.resetCrudHome();
+    this.props.actions.resetHomeFilter();
+  }
+
   /* Función que controla los turnos */
-  handleSelectShifts = (e) => {
+  handleSelectShifts = async (e) => {
     let arr = this.state.turnos;
     const index = this.state.turnos.indexOf(
       parseInt(e.target.dataset.value, 10),
@@ -71,30 +98,173 @@ class Home extends Component {
     this.setState({
       turnos: arr,
     });
+
+    /* Reset los filtros */
+    this.props.actions.resetCrudHome();
+
+    /* Fetch Tortas */
+    await this.props.actions.fetchCrudListTortas({
+      cliente_id: 1,
+      alcance_consulta: this.state.typeFilter,
+      desde:
+        this.state.typeFilter === 5
+          ? moment(this.state.startDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      hasta:
+        this.state.typeFilter === 5
+          ? moment(this.state.endDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      area_turnos: arr,
+    });
+
+    /* Fetch Turnos más riesgosos */
+    await this.props.actions.fetchCrudListTurnosMasRiesgosos({
+      cliente_id: 1,
+      alcance_consulta: this.state.typeFilter,
+      desde:
+        this.state.typeFilter === 5
+          ? moment(this.state.startDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      hasta:
+        this.state.typeFilter === 5
+          ? moment(this.state.endDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      area_turnos: arr,
+    });
+
+    /* Fetch Graph */
+    await this.props.actions.fetchCrudListGraph({
+      cliente_id: 1,
+      alcance_consulta: this.state.typeFilter,
+      desde:
+        this.state.typeFilter === 5
+          ? moment(this.state.startDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      hasta:
+        this.state.typeFilter === 5
+          ? moment(this.state.endDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      area_turnos: arr,
+    });
+
+    /* Fetch Table */
+    await this.props.actions.fetchCrudListTable({
+      cliente_id: 1,
+      alcance_consulta: this.state.typeFilter,
+      reg_inicio: 1,
+      reg_fin: 10,
+      desde:
+        this.state.typeFilter === 5
+          ? moment(this.state.startDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      hasta:
+        this.state.typeFilter === 5
+          ? moment(this.state.endDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      area_turnos: arr,
+    });
   };
 
+  /* Función que cambio las fechas */
   handleChangeStart = async (date) => {
+    const dateEnd = document.getElementById('date-end').value;
+    this.setState({
+      startDate: date,
+    });
     if (date && this.state.endDate) {
       this.setState({
         typeFilter: 5,
       });
+      /* Fetch Tortas */
+      await this.props.actions.fetchCrudListTortas({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
+
+      /* Fetch Turnos más riesgosos */
+      await this.props.actions.fetchCrudListTurnosMasRiesgosos({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
+
+      /* Fetch Graph */
+      await this.props.actions.fetchCrudListGraph({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
+
+      /* Fetch Table  */
+      await this.props.actions.fetchCrudListTable({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        reg_inicio: 1,
+        reg_fin: 10,
+        desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
     }
-    this.setState({
-      startDate: date,
-    });
   };
 
   handleChangeEnd = async (date) => {
+    const dateStart = document.getElementById('date-start').value;
+    this.setState({
+      endDate: date,
+    });
     if (date && this.state.startDate) {
       this.setState({
         typeFilter: 5,
       });
+      /* Fetch Tortas */
+      await this.props.actions.fetchCrudListTortas({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
+
+      /* Fetch Turnos más riesgosos */
+      await this.props.actions.fetchCrudListTurnosMasRiesgosos({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
+
+      /* Fetch Graph */
+      await this.props.actions.fetchCrudListGraph({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
+
+      /* Fetch  Table */
+      await this.props.actions.fetchCrudListTable({
+        cliente_id: 1,
+        alcance_consulta: 5,
+        reg_inicio: 1,
+        reg_fin: 10,
+        desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
     }
-    this.setState({
-      endDate: date,
-    });
   };
 
+  /* Función cual controla los filtros del graph */
   handleFilter = (e) => {
     this.setState({
       [e.target.dataset.name]: e.target.classList.contains('active')
@@ -104,16 +274,61 @@ class Home extends Component {
   };
 
   /* Función donde vamos a cambiar el filtro de fercha */
-  handleTypeFilter = (value) => {
+  handleTypeFilter = async (value) => {
     this.setState({
       startDate: null,
       endDate: null,
       typeFilter: value,
     });
+
+    /* Fetch Tortas */
+    await this.props.actions.fetchCrudListTortas({
+      cliente_id: 1,
+      alcance_consulta: value,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
+
+    /* Fetch Turnos más riesgosos */
+    await this.props.actions.fetchCrudListTurnosMasRiesgosos({
+      cliente_id: 1,
+      alcance_consulta: value,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
+
+    /* Fetch Graph */
+    await this.props.actions.fetchCrudListGraph({
+      cliente_id: 1,
+      alcance_consulta: value,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
+
+    /* Fetch Table */
+    await this.props.actions.fetchCrudListTable({
+      cliente_id: 1,
+      alcance_consulta: value,
+      reg_inicio: 1,
+      reg_fin: 10,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
   };
 
   render() {
-    console.log(this.props.dataTurnosMasRiesgosos);
+    if (
+      this.props.statusAreaTurnos === 401 ||
+      this.props.statusTortas === 401 ||
+      this.props.statusTurnosMasRiesgosos === 401
+    ) {
+      return <Modal history={this.props.history} state={true} />;
+    }
+
     return (
       <section>
         <Main
@@ -143,8 +358,13 @@ class Home extends Component {
           enriesgo={this.state.enriesgo}
           alerta={this.state.alerta}
           bajoRiesgo={this.state.bajoRiesgo}
+          dataGraph={this.props.dataGraph}
+          loadingGraph={this.props.loadingGraph}
         />
-        <Table />
+        <Table
+          loadingTable={this.props.loadingTable}
+          dataTable={this.props.dataTable}
+        />
       </section>
     );
   }
@@ -162,6 +382,14 @@ const mapStateToProps = (state) => ({
   dataTortas: state.home.dataTortas,
   loadingTortas: state.home.loadingTortas,
   statusTortas: state.home.statusTortas,
+
+  dataGraph: state.home.dataGraph,
+  loadingGraph: state.home.loadingGraph,
+  statusGraph: state.home.statusGraph,
+
+  dataTable: state.home.dataTable,
+  loadingTable: state.home.loadingTable,
+  statusTable: state.home.statusTable,
 });
 
 const mapDispatchToProps = (dispatch) => ({

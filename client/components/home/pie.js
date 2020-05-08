@@ -47,6 +47,7 @@ const PieComponent = (props) => {
     <ResponsiveContainer>
       <PieChart>
         <Pie
+          isAnimationActive={false}
           data={props.data}
           labelLine={false}
           label={renderCustomizedLabel}

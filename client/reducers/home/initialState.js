@@ -8,6 +8,12 @@ const initialState = {
   dataTurnosMasRiesgosos: {},
   loadingTurnosMasRiesgosos: true,
   statusTurnosMasRiesgosos: 0,
+  dataGraph: {},
+  loadingGraph: true,
+  statusGraph: 0,
+  dataTable: {},
+  loadingTable: true,
+  statusTable: 0,
 };
 
 export default initialState;

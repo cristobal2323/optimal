@@ -157,7 +157,7 @@ export default class Example extends PureComponent {
     return (
       <ResponsiveContainer>
         <LineChart
-          data={data}
+          data={this.props.data.datos}
           margin={{
             top: 10,
             right: 30,

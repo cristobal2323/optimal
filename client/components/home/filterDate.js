@@ -33,7 +33,7 @@ const FilterDate = (props) => {
   } else if (props.typeFilter === 2) {
     textType = '1 Semana';
   } else if (props.typeFilter === 3) {
-    textType = '2 Semana';
+    textType = '2 Semanas';
   } else if (props.typeFilter === 4) {
     textType = 'Mes';
   } else if (props.typeFilter === 5) {
