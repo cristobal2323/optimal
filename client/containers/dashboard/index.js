@@ -49,6 +49,7 @@ class Dashboard extends Component {
 
   render() {
     let auth = localStorage.getItem('auth');
+    const mobile = localStorage.getItem('mobile');
     auth = auth == 'true';
     let container;
     if (this.props.status !== 401) {
@@ -57,7 +58,10 @@ class Dashboard extends Component {
           {auth && (
             <React.Fragment>
               <Nav />
-              <section id="dashboard" className="module--dashboardContainer">
+              <section
+                id="dashboard"
+                className={`module--dashboardContainer ${mobile}`}
+              >
                 <Header handleLogOut={this.handleLogOut} />
                 {!this.props.loading ? (
                   <React.Fragment>

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Admin = props => (
+const Admin = (props) => (
   <li className="relative">
     <a
       id="menu-7"
       data-menu="ok"
-      className="arrow"
+      className={`arrow ${props.mobile}`}
       onClick={props.handleMenu}
       onKeyDown={props.handleMenu}
       data-child="sub--menu_7"
@@ -18,13 +18,14 @@ const Admin = props => (
     <div
       data-subbox="ok"
       id="sub--menu_7"
-      className="module--dashboardNav__subMenu"
+      className={`module--dashboardNav__subMenu ${props.mobile}`}
     >
       <div className="module--dashboardNav__subMenuBox">
         <h3>Eventos por:</h3>
         <Link
           to="/dashboard/list_vehicle"
           id="submenu5"
+          className={props.mobile}
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
@@ -34,6 +35,7 @@ const Admin = props => (
         <Link
           to="/dashboard/list_type_vehicle"
           id="submenu19"
+          className={props.mobile}
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
@@ -46,7 +48,7 @@ const Admin = props => (
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
-          className="bottom"
+          className={`bottom ${props.mobile}`}
         >
           conductor
         </Link>

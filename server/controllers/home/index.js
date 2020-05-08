@@ -4,7 +4,9 @@ const Config = require("../config/index");
 async function getAreaTurnos(req, res) {
   console.log("Listado area turnos");
   try {
-    console.log(`${Config.apiSystem}/atscli.json?cliente_id=1`);
+    console.log(
+      `${Config.apiSystem}/atscli.json?cliente_id=${req.session.cliente_id}`
+    );
     const response = await fetch(
       encodeURI(`${Config.apiSystem}/atscli.json?cliente_id=1`),
       {
@@ -28,6 +30,7 @@ async function postTortas(req, res) {
   console.log("Listado area turnos");
   try {
     console.log(`${Config.apiSystem}/rijo24.json`);
+    req.body.cliente_id = req.session.cliente_id;
     const response = await fetch(`${Config.apiSystem}/rijo24.json`, {
       method: "POST",
       headers: new Headers({
@@ -49,6 +52,7 @@ async function postTurnosMasRiesgos(req, res) {
   console.log("Listado turnos mas riesgosos");
   try {
     console.log(`${Config.apiSystem}/masrie.json`);
+    req.body.cliente_id = req.session.cliente_id;
     const response = await fetch(`${Config.apiSystem}/masrie.json`, {
       method: "POST",
       headers: new Headers({
@@ -70,6 +74,7 @@ async function postGraph(req, res) {
   console.log("Listado graph");
   try {
     console.log(`${Config.apiSystem}/rdia.json`);
+    req.body.cliente_id = req.session.cliente_id;
     const response = await fetch(`${Config.apiSystem}/rdia.json`, {
       method: "POST",
       headers: new Headers({
@@ -91,6 +96,7 @@ async function postTable(req, res) {
   console.log("Listado Table", req.body);
   try {
     console.log(`${Config.apiSystem}/pries.json`);
+    req.body.cliente_id = req.session.cliente_id;
     const response = await fetch(`${Config.apiSystem}/pries.json`, {
       method: "POST",
       headers: new Headers({

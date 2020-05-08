@@ -62,6 +62,7 @@ async function handlePost(req, res) {
 
     /* Se controla las sesiones */
     req.session.token = data.auth_token;
+    req.session.cliente_id = data.cliente_id;
 
     return res.status(status).send(dataGeneral);
   } catch (err) {

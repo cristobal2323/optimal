@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Mapa = props => (
+const Mapa = (props) => (
   <li>
     <Link
       to="/dashboard/home"
       id="menu-1"
       data-menu="ok"
+      className={`${props.mobile}`}
       onClick={props.handleMenu}
       onKeyDown={props.handleMenu}
     >

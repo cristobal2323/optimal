@@ -74,14 +74,21 @@ class Nav extends Component {
     for (let i = 0; i < submenus.length; i++) {
       submenus[i].classList.toggle('mobile');
     }
+
+    if (nav.classList.contains('mobile')) {
+      localStorage.setItem('mobile', 'mobile');
+    } else {
+      localStorage.setItem('mobile', '');
+    }
   };
 
   render() {
     const name = localStorage.getItem('nombre');
     const email = localStorage.getItem('email');
     const rol = localStorage.getItem('rol');
+    const mobile = localStorage.getItem('mobile');
     return (
-      <nav id="mobile-1" className="module--dashboardNav">
+      <nav id="mobile-1" className={`module--dashboardNav ${mobile}`}>
         <div className="module--dashboardNav__logo">
           <img src={Logo} className="logoDesktop" alt="Logo" />
           <img src={LogoSmall} className="logoMobile" alt="Logo" />
@@ -93,22 +100,24 @@ class Nav extends Component {
         </div>
         <div className="module--dashboardNav__menu">
           <ul>
-            {true && <Home handleMenu={this.handleMenu} />}
+            {true && <Home mobile={mobile} handleMenu={this.handleMenu} />}
             {true && (
               <Persona
+                mobile={mobile}
                 handleSubMenu={this.handleSubMenu}
                 handleMenu={this.handleMenu}
               />
             )}
             {true && (
               <Behavior
+                mobile={mobile}
                 handleSubMenu={this.handleSubMenu}
                 handleMenu={this.handleMenu}
               />
             )}
           </ul>
         </div>
-        <div id="mobile-2" className="module--dashboardNav__arrow">
+        <div id="mobile-2" className={`module--dashboardNav__arrow ${mobile}`}>
           <div
             onClick={this.handleConvertMenu}
             onKeyDown={this.handleConvertMenu}

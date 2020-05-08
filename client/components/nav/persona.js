@@ -7,7 +7,7 @@ const Admin = (props) => (
     <a
       id="menu-100"
       data-menu="ok"
-      className="arrow"
+      className={`arrow ${props.mobile}`}
       onClick={props.handleMenu}
       onKeyDown={props.handleMenu}
       data-child="sub--menu_100"
@@ -18,7 +18,7 @@ const Admin = (props) => (
     <div
       data-subbox="ok"
       id="sub--menu_100"
-      className="module--dashboardNav__subMenu"
+      className={`module--dashboardNav__subMenu ${props.mobile}`}
     >
       <div className="module--dashboardNav__subMenuBox">
         <h3>Eventos por:</h3>
@@ -37,7 +37,7 @@ const Admin = (props) => (
           data-submenu="ok"
           onClick={props.handleSubMenu}
           onKeyDown={props.handleSubMenu}
-          className="bottom"
+          className={`bottom ${props.mobile}`}
         >
           Otro
         </Link>

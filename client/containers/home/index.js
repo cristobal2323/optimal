@@ -40,7 +40,7 @@ class Home extends Component {
 
     /* Fetch Tortas */
     await this.props.actions.fetchCrudListTortas({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: this.state.typeFilter,
       desde: this.state.startDate,
       hasta: this.state.endDate,
@@ -49,7 +49,7 @@ class Home extends Component {
 
     /* Fetch Turnos más riesgosos */
     await this.props.actions.fetchCrudListTurnosMasRiesgosos({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: this.state.typeFilter,
       desde: this.state.startDate,
       hasta: this.state.endDate,
@@ -58,7 +58,7 @@ class Home extends Component {
 
     /* Fetch Graph */
     await this.props.actions.fetchCrudListGraph({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: this.state.typeFilter,
       desde: this.state.startDate,
       hasta: this.state.endDate,
@@ -67,7 +67,7 @@ class Home extends Component {
 
     /* Fetch Table */
     await this.props.actions.fetchCrudListTable({
-      cliente_id: 1,
+      cliente_id: null,
       reg_inicio: 1,
       reg_fin: 10,
       alcance_consulta: this.state.typeFilter,
@@ -104,7 +104,7 @@ class Home extends Component {
 
     /* Fetch Tortas */
     await this.props.actions.fetchCrudListTortas({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: this.state.typeFilter,
       desde:
         this.state.typeFilter === 5
@@ -119,7 +119,7 @@ class Home extends Component {
 
     /* Fetch Turnos más riesgosos */
     await this.props.actions.fetchCrudListTurnosMasRiesgosos({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: this.state.typeFilter,
       desde:
         this.state.typeFilter === 5
@@ -134,7 +134,7 @@ class Home extends Component {
 
     /* Fetch Graph */
     await this.props.actions.fetchCrudListGraph({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: this.state.typeFilter,
       desde:
         this.state.typeFilter === 5
@@ -149,7 +149,7 @@ class Home extends Component {
 
     /* Fetch Table */
     await this.props.actions.fetchCrudListTable({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: this.state.typeFilter,
       reg_inicio: 1,
       reg_fin: 10,
@@ -175,9 +175,13 @@ class Home extends Component {
       this.setState({
         typeFilter: 5,
       });
+
+      /* Reset los filtros */
+      this.props.actions.resetCrudHome();
+
       /* Fetch Tortas */
       await this.props.actions.fetchCrudListTortas({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
         hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
@@ -186,7 +190,7 @@ class Home extends Component {
 
       /* Fetch Turnos más riesgosos */
       await this.props.actions.fetchCrudListTurnosMasRiesgosos({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
         hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
@@ -195,7 +199,7 @@ class Home extends Component {
 
       /* Fetch Graph */
       await this.props.actions.fetchCrudListGraph({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
         hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
@@ -204,7 +208,7 @@ class Home extends Component {
 
       /* Fetch Table  */
       await this.props.actions.fetchCrudListTable({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         reg_inicio: 1,
         reg_fin: 10,
@@ -224,9 +228,13 @@ class Home extends Component {
       this.setState({
         typeFilter: 5,
       });
+
+      /* Reset los filtros */
+      this.props.actions.resetCrudHome();
+
       /* Fetch Tortas */
       await this.props.actions.fetchCrudListTortas({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
         hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
@@ -235,7 +243,7 @@ class Home extends Component {
 
       /* Fetch Turnos más riesgosos */
       await this.props.actions.fetchCrudListTurnosMasRiesgosos({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
         hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
@@ -244,7 +252,7 @@ class Home extends Component {
 
       /* Fetch Graph */
       await this.props.actions.fetchCrudListGraph({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
         hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
@@ -253,7 +261,7 @@ class Home extends Component {
 
       /* Fetch  Table */
       await this.props.actions.fetchCrudListTable({
-        cliente_id: 1,
+        cliente_id: null,
         alcance_consulta: 5,
         reg_inicio: 1,
         reg_fin: 10,
@@ -281,9 +289,12 @@ class Home extends Component {
       typeFilter: value,
     });
 
+    /* Reset los filtros */
+    this.props.actions.resetCrudHome();
+
     /* Fetch Tortas */
     await this.props.actions.fetchCrudListTortas({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: value,
       desde: this.state.startDate,
       hasta: this.state.endDate,
@@ -292,7 +303,7 @@ class Home extends Component {
 
     /* Fetch Turnos más riesgosos */
     await this.props.actions.fetchCrudListTurnosMasRiesgosos({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: value,
       desde: this.state.startDate,
       hasta: this.state.endDate,
@@ -301,7 +312,7 @@ class Home extends Component {
 
     /* Fetch Graph */
     await this.props.actions.fetchCrudListGraph({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: value,
       desde: this.state.startDate,
       hasta: this.state.endDate,
@@ -310,7 +321,7 @@ class Home extends Component {
 
     /* Fetch Table */
     await this.props.actions.fetchCrudListTable({
-      cliente_id: 1,
+      cliente_id: null,
       alcance_consulta: value,
       reg_inicio: 1,
       reg_fin: 10,
