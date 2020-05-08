@@ -37,6 +37,7 @@ app.use("/api/homeTortas", home.homeTortas);
 app.use("/api/homeTurnosMasRiesgosos", home.homeTurnosMasRiesgosos);
 app.use("/api/homeGraph", home.homeGraph);
 app.use("/api/homeTable", home.homeTable);
+app.use("/api/homeTableCount", home.homeTableCount);
 
 app.use("/", routes);
 

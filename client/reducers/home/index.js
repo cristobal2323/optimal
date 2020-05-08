@@ -15,6 +15,9 @@ import {
   FETCH_CRUD_TABLE_INIT,
   FETCH_CRUD_TABLE_SUCCESS,
   FETCH_CRUD_TABLE_FAILURE,
+  FETCH_CRUD_TABLE_COUNT_INIT,
+  FETCH_CRUD_TABLE_COUNT_SUCCESS,
+  FETCH_CRUD_TABLE_COUNT_FAILURE,
   RESET_CRUD_HOME,
   RESET_HOME_FILTER,
 } from '../../actions/home/types';
@@ -37,6 +40,9 @@ export default function home(state = initialState, action) {
         dataTable: {},
         loadingTable: true,
         statusTable: 0,
+        dataTableCount: {},
+        loadingTableCount: true,
+        statusTableCount: 0,
       };
     case RESET_HOME_FILTER:
       return {
@@ -139,6 +145,25 @@ export default function home(state = initialState, action) {
         dataTable: {},
         loadingTable: false,
         statusTable: 501,
+      };
+    case FETCH_CRUD_TABLE_COUNT_INIT:
+      return {
+        ...state,
+        loadingTableCount: true,
+      };
+    case FETCH_CRUD_TABLE_COUNT_SUCCESS:
+      return {
+        ...state,
+        dataTableCount: action.payload.data,
+        loadingTableCount: false,
+        statusTableCount: action.payload.status,
+      };
+    case FETCH_CRUD_TABLE_COUNT_FAILURE:
+      return {
+        ...state,
+        dataTableCount: {},
+        loadingTableCount: false,
+        statusTableCount: 501,
       };
     default:
       return state;

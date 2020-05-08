@@ -14,6 +14,9 @@ const initialState = {
   dataTable: {},
   loadingTable: true,
   statusTable: 0,
+  dataTableCount: {},
+  loadingTableCount: true,
+  statusTableCount: 0,
 };
 
 export default initialState;

@@ -14,6 +14,9 @@ import {
   FETCH_CRUD_TABLE_INIT,
   FETCH_CRUD_TABLE_SUCCESS,
   FETCH_CRUD_TABLE_FAILURE,
+  FETCH_CRUD_TABLE_COUNT_INIT,
+  FETCH_CRUD_TABLE_COUNT_SUCCESS,
+  FETCH_CRUD_TABLE_COUNT_FAILURE,
   RESET_CRUD_HOME,
   RESET_HOME_FILTER,
 } from './types';
@@ -173,7 +176,7 @@ export function fetchCrudListGraph(data) {
   };
 }
 
-/* Fetch graph */
+/* Fetch table */
 
 function fetchApiTableSuccess(data) {
   return {
@@ -204,6 +207,41 @@ export function fetchCrudListTable(data) {
       return dispatch(fetchApiTableSuccess(resp));
     } catch (error) {
       return dispatch(fetchApiTableFailure(error));
+    }
+  };
+}
+
+/* Fetch table count */
+
+function fetchApiTableCountSuccess(data) {
+  return {
+    type: FETCH_CRUD_TABLE_COUNT_SUCCESS,
+    payload: data,
+  };
+}
+
+function fetchApiTableCountFailure(error) {
+  return {
+    type: FETCH_CRUD_TABLE_COUNT_FAILURE,
+    payload: error,
+  };
+}
+
+function fetchApiTableCountInit(load) {
+  return {
+    type: FETCH_CRUD_TABLE_COUNT_INIT,
+    payload: load,
+  };
+}
+
+export function fetchCrudListTableCount(data) {
+  return async (dispatch) => {
+    dispatch(fetchApiTableCountInit());
+    try {
+      const resp = await API.data.postTableCount(data);
+      return dispatch(fetchApiTableCountSuccess(resp));
+    } catch (error) {
+      return dispatch(fetchApiTableCountFailure(error));
     }
   };
 }

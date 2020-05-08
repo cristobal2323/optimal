@@ -84,6 +84,15 @@ class Home extends Component {
       hasta: this.state.endDate,
       area_turnos: this.state.turnos,
     });
+
+    /* Fetch Table  Count */
+    await this.props.actions.fetchCrudListTableCount({
+      cliente_id: null,
+      alcance_consulta: this.state.typeFilter,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
   }
 
   componentWillUnmount() {
@@ -172,6 +181,21 @@ class Home extends Component {
           : null,
       area_turnos: arr,
     });
+
+    /* Fetch Table Count */
+    await this.props.actions.fetchCrudListTableCount({
+      cliente_id: null,
+      alcance_consulta: this.state.typeFilter,
+      desde:
+        this.state.typeFilter === 5
+          ? moment(this.state.startDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      hasta:
+        this.state.typeFilter === 5
+          ? moment(this.state.endDate, 'MM-DD-YYYY').format('MM-DD-YYYY')
+          : null,
+      area_turnos: arr,
+    });
   };
 
   /* Función que cambio las fechas */
@@ -225,6 +249,15 @@ class Home extends Component {
         hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
         area_turnos: this.state.turnos,
       });
+
+      /* Fetch Table  Count */
+      await this.props.actions.fetchCrudListTableCount({
+        cliente_id: null,
+        alcance_consulta: 5,
+        desde: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(dateEnd, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
     }
   };
 
@@ -274,6 +307,15 @@ class Home extends Component {
         alcance_consulta: 5,
         reg_inicio: 1,
         reg_fin: 10,
+        desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
+        hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
+        area_turnos: this.state.turnos,
+      });
+
+      /* Fetch  Table Count */
+      await this.props.actions.fetchCrudListTableCount({
+        cliente_id: null,
+        alcance_consulta: 5,
         desde: moment(dateStart, 'DD-MM-YYYY').format('MM-DD-YYYY'),
         hasta: moment(date, 'MM-DD-YYYY').format('MM-DD-YYYY'),
         area_turnos: this.state.turnos,
@@ -338,6 +380,15 @@ class Home extends Component {
       hasta: this.state.endDate,
       area_turnos: this.state.turnos,
     });
+
+    /* Fetch Table Count */
+    await this.props.actions.fetchCrudListTableCount({
+      cliente_id: null,
+      alcance_consulta: value,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
   };
 
   /* Paginador */
@@ -388,7 +439,10 @@ class Home extends Component {
     if (
       this.props.statusAreaTurnos === 401 ||
       this.props.statusTortas === 401 ||
-      this.props.statusTurnosMasRiesgosos === 401
+      this.props.statusTurnosMasRiesgosos === 401 ||
+      this.props.statusTable === 401 ||
+      this.props.statusTableCount === 401 ||
+      this.props.statusGraph === 401
     ) {
       return <Modal history={this.props.history} state={true} />;
     }
@@ -429,11 +483,16 @@ class Home extends Component {
           loadingTable={this.props.loadingTable}
           dataTable={this.props.dataTable}
         />
-        <Paginator
-          handlePaginator={this.handlePaginator}
-          num={20}
-          pag={this.state.pag}
-        />
+        {!this.props.loadingTableCount && (
+          <Paginator
+            handlePaginator={this.handlePaginator}
+            num={Math.round(
+              this.props.dataTableCount.datos.paginador.total /
+                this.state.pag.sum,
+            )}
+            pag={this.state.pag}
+          />
+        )}
       </section>
     );
   }
@@ -459,6 +518,10 @@ const mapStateToProps = (state) => ({
   dataTable: state.home.dataTable,
   loadingTable: state.home.loadingTable,
   statusTable: state.home.statusTable,
+
+  dataTableCount: state.home.dataTableCount,
+  loadingTableCount: state.home.loadingTableCount,
+  statusTableCount: state.home.statusTableCount,
 });
 
 const mapDispatchToProps = (dispatch) => ({

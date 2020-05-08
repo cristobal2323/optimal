@@ -114,10 +114,33 @@ async function postTable(req, res) {
   }
 }
 
+async function postTableCount(req, res) {
+  console.log("Listado Table", req.body);
+  try {
+    console.log(`${Config.apiSystem}/pgpries.json`);
+    req.body.cliente_id = req.session.cliente_id;
+    const response = await fetch(`${Config.apiSystem}/pgpries.json`, {
+      method: "POST",
+      headers: new Headers({
+        Authorization: `Bearer ${req.session.token}`,
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify(req.body),
+    });
+
+    const status = response.status;
+    const data = await response.json();
+    return res.status(status).send(data);
+  } catch (error) {
+    return res.status(401).send({});
+  }
+}
+
 module.exports = {
   getAreaTurnos,
   postTurnosMasRiesgos,
   postTortas,
   postGraph,
   postTable,
+  postTableCount,
 };

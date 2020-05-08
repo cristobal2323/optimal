@@ -6,12 +6,14 @@ const homeTortas = express.Router();
 const homeTurnosMasRiesgosos = express.Router();
 const homeGraph = express.Router();
 const homeTable = express.Router();
+const homeTableCount = express.Router();
 
 homeAreaTurnos.get("/:obj", homeCtrl.getAreaTurnos);
 homeTortas.post("/", homeCtrl.postTortas);
 homeTurnosMasRiesgosos.post("/", homeCtrl.postTurnosMasRiesgos);
 homeGraph.post("/", homeCtrl.postGraph);
 homeTable.post("/", homeCtrl.postTable);
+homeTableCount.post("/", homeCtrl.postTableCount);
 
 module.exports = {
   homeAreaTurnos,
@@ -19,4 +21,5 @@ module.exports = {
   homeTurnosMasRiesgosos,
   homeGraph,
   homeTable,
+  homeTableCount,
 };
