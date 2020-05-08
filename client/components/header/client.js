@@ -5,7 +5,7 @@ import Config from '../../../server/controllers/config/index';
 const Client = (props) => (
   <div className="module--dashboardHeader__client">
     <div>
-      <img src={`${Config.api}${props.logoClient}`} alt="logo cliente" />
+      <img src={`${Config.apiPublic}${props.logoClient}`} alt="logo cliente" />
     </div>
     <div>
       <h3>{props.client}</h3>

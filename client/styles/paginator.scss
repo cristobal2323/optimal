@@ -1,0 +1,13 @@
+.module--mapa__paginator {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  .btn-primary {
+    background: #cb2e56;
+    border: solid 1px $base-color;
+    &.active {
+      background-color: #f82873 !important;
+      border-color: #f82873 !important;
+    }
+  }
+}

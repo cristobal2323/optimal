@@ -12,6 +12,7 @@ import Modal from '../common/modal';
 import Main from '../../components/home/main';
 import Table from '../../components/home/table';
 import Area from '../../components/home/area';
+import Paginator from '../../components/home/paginator';
 
 class Home extends Component {
   constructor(props) {
@@ -30,6 +31,14 @@ class Home extends Component {
       alerta: true,
       bajoRiesgo: true,
       turnos: [],
+      pag: {
+        main: 1,
+        start: 0,
+        end: 10,
+        sum: 10,
+        startPaginator: 1,
+        endPaginator: 10,
+      },
     };
   }
 
@@ -331,6 +340,50 @@ class Home extends Component {
     });
   };
 
+  /* Paginador */
+  handlePaginator = async (event) => {
+    const start =
+      event.target.dataset.num * this.state.pag.sum - this.state.pag.sum;
+    const end = event.target.dataset.num * this.state.pag.sum;
+
+    let startPaginator = this.state.pag.startPaginator;
+    let endPaginator = this.state.pag.endPaginator;
+    if (
+      event.target.dataset.start === 'start' &&
+      event.target.dataset.num > 4
+    ) {
+      startPaginator -= 5;
+      endPaginator -= 5;
+    }
+
+    if (event.target.dataset.end === 'end') {
+      startPaginator += 5;
+      endPaginator += 5;
+    }
+
+    this.setState({
+      pag: {
+        ...this.state.pag,
+        start,
+        end,
+        main: parseInt(event.target.dataset.num, 10),
+        startPaginator,
+        endPaginator,
+      },
+    });
+
+    /* Fetch Table */
+    await this.props.actions.fetchCrudListTable({
+      cliente_id: null,
+      alcance_consulta: this.state.typeFilter,
+      reg_inicio: start,
+      reg_fin: end,
+      desde: this.state.startDate,
+      hasta: this.state.endDate,
+      area_turnos: this.state.turnos,
+    });
+  };
+
   render() {
     if (
       this.props.statusAreaTurnos === 401 ||
@@ -375,6 +428,11 @@ class Home extends Component {
         <Table
           loadingTable={this.props.loadingTable}
           dataTable={this.props.dataTable}
+        />
+        <Paginator
+          handlePaginator={this.handlePaginator}
+          num={20}
+          pag={this.state.pag}
         />
       </section>
     );
