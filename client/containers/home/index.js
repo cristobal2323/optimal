@@ -115,6 +115,14 @@ class Home extends Component {
 
     this.setState({
       turnos: arr,
+      pag: {
+        main: 1,
+        start: 0,
+        end: 10,
+        sum: 10,
+        startPaginator: 1,
+        endPaginator: 10,
+      },
     });
 
     /* Reset los filtros */
@@ -207,6 +215,14 @@ class Home extends Component {
     if (date && this.state.endDate) {
       this.setState({
         typeFilter: 5,
+        pag: {
+          main: 1,
+          start: 0,
+          end: 10,
+          sum: 10,
+          startPaginator: 1,
+          endPaginator: 10,
+        },
       });
 
       /* Reset los filtros */
@@ -269,6 +285,14 @@ class Home extends Component {
     if (date && this.state.startDate) {
       this.setState({
         typeFilter: 5,
+        pag: {
+          main: 1,
+          start: 0,
+          end: 10,
+          sum: 10,
+          startPaginator: 1,
+          endPaginator: 10,
+        },
       });
 
       /* Reset los filtros */
@@ -338,6 +362,14 @@ class Home extends Component {
       startDate: null,
       endDate: null,
       typeFilter: value,
+      pag: {
+        main: 1,
+        start: 0,
+        end: 10,
+        sum: 10,
+        startPaginator: 1,
+        endPaginator: 10,
+      },
     });
 
     /* Reset los filtros */
