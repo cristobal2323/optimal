@@ -9,7 +9,7 @@ const Form = (props) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const [number, setNumber] = useState('');
-  const ENDPOINT = 'http://localhost:3000';
+  const ENDPOINT = 'http://dataon.cl:8008';
 
   useEffect(() => {
     socket = io(ENDPOINT);
