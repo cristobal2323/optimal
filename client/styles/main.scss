@@ -10,6 +10,10 @@ $paragraph-color: #727474;
 $text-gray: #858796;
 $text-dark: #3a3b45;
 
+body {
+  background-color: $base-color;
+}
+
 .relative {
   position: relative;
 }

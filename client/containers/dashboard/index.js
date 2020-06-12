@@ -14,6 +14,7 @@ import Header from '../header';
 import Nav from '../nav';
 
 import PersonDetails from '../person_details';
+import Fifo from '../fifo';
 
 import Loading from '../common/loading';
 import Modal from '../common/modal';
@@ -74,6 +75,11 @@ class Dashboard extends Component {
                       exact
                       path={`${this.props.match.path}/person_details`}
                       component={PersonDetails}
+                    />
+                    <Route
+                      exact
+                      path={`${this.props.match.path}/fifo`}
+                      component={Fifo}
                     />
                   </React.Fragment>
                 ) : (

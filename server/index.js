@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
+const http = require("http");
+const socketio = require("socket.io");
 
 require("./controllers/config/environment");
 
@@ -41,4 +43,29 @@ app.use("/api/homeTableCount", home.homeTableCount);
 
 app.use("/", routes);
 
-app.listen(port, () => console.log(`Server is listening on port ${port}`));
+const server = http.createServer(app);
+const io = socketio(server);
+
+server.listen(port, () => console.log(`Server is listening on port ${port}`));
+
+io.on("connect", (socket) => {
+  socket.on("join", ({ name, room }, callback) => {
+    console.log("esto es tiempo real");
+    socket.join("1");
+    socket.emit("number", {
+      user: "admin",
+      number: `1`,
+    });
+
+    callback();
+  });
+
+  socket.on("nextNumber", (number, callback) => {
+    let num = parseInt(number, 10) + 1;
+    socket.emit("number", { user: "admin", number: `${num}` });
+    socket.broadcast
+      .to("1")
+      .emit("number", { user: "admin", number: `${num}` });
+    callback();
+  });
+});
